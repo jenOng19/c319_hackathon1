@@ -20,8 +20,7 @@ class Player {
 
     init () {
 
-        this.spiceObtainCard = new SpiceObtainCard(['yellow', 'yellow'],'','', this.cardHandler);
-
+        this.spiceObtainCard = new SpiceObtainCard(['yellow', 'yellow','green'],'','', this.cardHandler);
         this.spiceObtainCardElement = this.spiceObtainCard.render();
 
         this.spiceUpgradeCard = new SpiceUpgradeCard(2,'','', this.cardHandler);
