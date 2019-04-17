@@ -7,6 +7,12 @@ class SpiceTradeCard extends Card {
         this._domElement = null;
     }
 
+    get requestSpiceList(){
+        return this._requestSpiceList;
+    }
+    get acquireSpiceList(){
+        return this._acquireSpiceList;
+    }
     render () {
         const cardElement = $('<div>')
                                 .addClass('card spice-trade-card')

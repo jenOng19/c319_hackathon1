@@ -1,17 +1,18 @@
 class PointCard extends Card {
 
-    constructor (spiceList, point, ...extraArguments){
+    constructor (spiceList, points, ...extraArguments){
         super(...extraArguments);
         this._spiceList = spiceList;
-        this._point = point;
-        this.callBack = callBack;
+        this._points = points;
         this._isRevealed = true;
-        
         this._domElement = null;
     }
 
     get spiceList () {
         return this._spiceList;
+    }
+    get points () {
+        return this._points
     }
 
 
