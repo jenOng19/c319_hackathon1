@@ -34,8 +34,9 @@ class Player {
 
     render (){
 
-    }
 
+    }
+    
 
 
 }
