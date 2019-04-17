@@ -6,6 +6,10 @@
     background-size: cover;
 }
 
+.inactive-cards .card {
+    opacity: .6;
+}
+
 .merchant-cards, .conversion-cards {
     padding: 25px 0;
 }
@@ -13,6 +17,13 @@
 .merchant-cards .card, .point-cards .card {
     width: 130px;
     height: 210px;
+}
+
+.merchant-card.upgrade-card {
+    background-color: yellow;
+}
+.merchant-card.obtain-card {
+    background-color: red;
 }
 
 .points-cards .card {
@@ -26,6 +37,4 @@
     font-size: 3rem;
 }
 
-.inactive-cards .card {
-    opacity: .6;
-}
+
