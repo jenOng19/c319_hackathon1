@@ -1,10 +1,10 @@
 const pointCards = [
     {
-        requestSpices = ['red', 'red', 'green', 'brown'],
+        requestSpices : ['red', 'red', 'green', 'brown'],
         point : 12
     },
     {
-        requestSpices = ['yellow', 'yellow', 'green', 'green', 'brown', 'brown'],
+        requestSpices : ['yellow', 'yellow', 'green', 'green', 'brown', 'brown'],
         point : 17
 
     }
@@ -14,10 +14,10 @@ const pointCards = [
 
 const spiceObtainCards = [
     {
-        obtainSpices = ['yellow', 'yellow']
+        obtainSpices : ['yellow', 'yellow']
     },
     {
-        obtainSpices = ['red', 'red']
+        obtainSpices : ['red', 'red']
     },
     //....make a few data
 
@@ -25,12 +25,12 @@ const spiceObtainCards = [
 
 const spiceTradeCards = [
     {
-        requestSpices = ['brown'],
-        obtainSpices = ['red', 'red', 'yellow', 'yellow']
+        requestSpices : ['brown'],
+        obtainSpices : ['red', 'red', 'yellow', 'yellow']
     },
     {
-        requestSpices = ['green'],
-        obtainSpices = ['red', 'red']
+        requestSpices : ['green'],
+        obtainSpices : ['red', 'red']
     },
     //....make a few data
 
