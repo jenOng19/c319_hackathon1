@@ -12,6 +12,10 @@
     margin: 6px;
 }
 
+.gray {
+    background-color: gray;
+}
+
 .yellow {
     background-color: #fbcb65;
 }

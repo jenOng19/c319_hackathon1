@@ -11,7 +11,6 @@ class SpiceObtainCard extends Card {
     }
 
     render () {
-        debugger;
         const cardElement = $('<div>')
                                 .addClass('card obtain-card')
                                 .on({

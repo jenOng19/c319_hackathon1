@@ -14,7 +14,6 @@ class Player {
     }
 
     init () {
-        debugger;
         this.spiceObtainCard = new SpiceObtainCard(['yellow', 'yellow']);
         this.spiceObtainCardElement = this.spiceObtainCard.render();
     }

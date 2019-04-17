@@ -26,7 +26,7 @@
     background-color: red;
 }
 
-.points-cards .card {
+.point-cards .card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -35,6 +35,25 @@
 .point-cards .points-display {
     text-align: center;
     font-size: 3rem;
+}
+
+.card-function {
+    padding: 5px;
+}
+
+.card-function .arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+}
+
+.card-spice {
+    width: 25px;
+    height: 25px;
+    margin: 5px;
 }
 
 
