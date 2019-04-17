@@ -1,0 +1,24 @@
+.game-area{
+    flex: 1;
+}
+
+.game-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.merchant-cards .card, .conversion-cards .card {
+    width: 130px;
+    height: 210px;
+}
+
+.merchant-cards, .conversion-cards, .available-spices {
+    padding: 25px 0;
+}
+
+.spice-bowl {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 5px solid #000;
+}

@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Spice Roads</title>
-    <script src="./"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Century Spice Road</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="assets/Components/Card/Card.css">
+    <link rel="stylesheet" href="assets/Components/Game/Game.css">
+    <link rel="stylesheet" href="assets/Components/Player/Player.css">
+    <link rel="stylesheet" href="assets/Components/Spice/Spice.css">
+    <script src=""></script>
     <script src=""></script>
     <script src=""></script>
     <script src=""></script>
@@ -14,6 +23,101 @@
     <script src=""></script>
 </head>
 <body>
-    
+    <div class="container flex">
+        <div class="player1 player-sidebar active-player">
+            <h1>Player 1</h1>
+            <div class="inactive-cards flex flex-center">
+                <div class="card inactive-card"></div>
+                <div class="card inactive-card"></div>
+                <div class="card inactive-card"></div>
+            </div>
+            <div class="spice-collection flex flex-left">
+                <div class="spice yellow"></div>
+                <div class="spice yellow"></div>
+                <div class="spice yellow"></div>
+                <div class="spice yellow"></div>
+                <div class="spice red"></div>
+                <div class="spice red"></div>
+                <div class="spice brown"></div>
+                <div class="spice"></div>
+                <div class="spice"></div>
+                <div class="spice"></div>
+            </div>
+            <div class="active-cards flex flex-center">
+                <div class="card merchant-card obtain-card"></div>
+                <div class="card merchant-card upgrade-card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+            </div>
+        </div>
+        <!--player 1 sidebar-->
+        <div class="game-area">
+            <h1>Century Spice Road Game</h1>
+            <div class="game-container">
+                <div class="point-cards flex flex-left">
+                    <div class="card point-card">
+                        <div class="points-display">15</div>
+                        <div class="price">
+                            <div class="price-spice yellow">Y</div>
+                            <div class="price-spice brown">B</div>
+                            <div class="price-spice green">G</div>
+                        </div>
+                    </div>
+                    <div class="card point-card"></div>
+                    <div class="card point-card"></div>
+                    <div class="card point-card"></div>
+                    <div class="card point-card"></div>
+                    <div class="card point-card"></div>
+                </div>
+                <div class="merchant-cards flex flex-left">
+                    <div class="card merchant-card obtain-card">
+                        <div class="obtain-spice"></div>
+                    </div>
+                    <div class="card merchant-card trade-card">
+                        <div class="trade-spice"></div>
+                        <div class="trade-arrow"></div>
+                        <div class="trade-obtained"></div>
+                    </div>
+                    <div class="card merchant-card upgrade-card">
+                        <div class="upgrade-arrow"></div>
+                        <div class="upgrade-spice"></div>
+                    </div>
+                    <div class="card merchant-card"></div>
+                    <div class="card merchant-card"></div>
+                </div>
+                <div class="available-spices flex flex-evenly">
+                    <div class="spice-bowl yellow"></div>
+                    <div class="spice-bowl red"></div>
+                    <div class="spice-bowl green"></div>
+                    <div class="spice-bowl brown"></div>
+                </div>
+            </div>
+        </div>
+        <!--Game Area-->
+        <div class="player2 player-sidebar">
+            <h1>Player 2</h1>
+            <div class="inactive-cards flex flex-center">
+                <div class="card inactive-card"></div>
+            </div>
+            <div class="spice-collection flex flex-left">
+                <div class="spice yellow"></div>
+                <div class="spice yellow"></div>
+                <div class="spice red"></div>
+                <div class="spice red"></div>
+                <div class="spice red"></div>
+                <div class="spice brown"></div>
+                <div class="spice brown"></div>
+                <div class="spice brown"></div>
+                <div class="spice brown"></div>
+            </div>
+            <div class="active-cards flex flex-center">
+                <div class="card active-card"></div>
+                <div class="card active-card"></div>
+                <div class="card active-card"></div>
+                <div class="card active-card"></div>
+            </div>
+        </div>
+        <!--player 2 sidebar-->
+    </div>
 </body>
 </html>
