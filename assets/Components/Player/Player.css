@@ -1,0 +1,12 @@
+.player-sidebar {
+    width: 0;
+    height: 0;
+    background-color: pink;
+    transition: width .5s;
+    overflow: hidden;
+}
+
+.player-sidebar.active-player {
+    width: 500px;
+    height: initial;
+}
