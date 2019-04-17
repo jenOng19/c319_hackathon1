@@ -1,0 +1,26 @@
+.spice-collection {
+    width: 400px;
+    margin: 25px auto;
+    padding: 15px;
+    border: 1px solid #000;
+    background-color: #FFF;
+}
+
+.spice {
+    width: 60px;
+    height: 60px;
+    margin: 6px;
+}
+
+.yellow {
+    background-color: #fbcb65;
+}
+.red {
+    background-color: #e62b3e;
+}
+.green {
+    background-color: #a3ba46;
+}
+.brown {
+    background-color: #9e6351;
+}

@@ -1,0 +1,31 @@
+.card {
+    border: 1px solid #000;
+    width: 100px;
+    height: 150px;
+    margin: 5px;
+    background-size: cover;
+}
+
+.merchant-cards, .conversion-cards {
+    padding: 25px 0;
+}
+
+.merchant-cards .card, .point-cards .card {
+    width: 130px;
+    height: 210px;
+}
+
+.points-cards .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.point-cards .points-display {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.inactive-cards .card {
+    opacity: .6;
+}
