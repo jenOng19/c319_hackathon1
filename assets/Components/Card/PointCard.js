@@ -1,7 +1,7 @@
 class PointCard extends Card {
 
-    constructor (spiceList, point){
-        super();
+    constructor (spiceList, point, ...extraArguments){
+        super(...extraArguments);
         this._spiceList = spiceList;
         this._point = point;
         this.callBack = callBack;
@@ -21,7 +21,8 @@ class PointCard extends Card {
                                 .addClass('card point-card')
                                 .on({
                                     'click': this.cardClickHandler
-                                });
-    
+                                })
+                                .text('PointCard');
+        return cardElement;
     }
 }
