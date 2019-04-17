@@ -1,6 +1,7 @@
 class SpiceUpgradeCard extends Card {
 
     constructor (upgradeTimes){
+        super();
         this._upgradeTimes = upgradeTimes;
         this._domElement = null;
     }

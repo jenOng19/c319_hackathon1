@@ -13,6 +13,12 @@ class Player {
 
     }
 
+    init () {
+        debugger;
+        this.spiceObtainCard = new SpiceObtainCard(['yellow', 'yellow']);
+        this.spiceObtainCardElement = this.spiceObtainCard.render();
+    }
+
     cardHandler (cardObj) {
         switch (cardObj.constructor) {
             case SpiceObtainCard.constructor :
@@ -33,8 +39,7 @@ class Player {
 
 
     render (){
-
-
+        $('.active-cards').append(this.spiceObtainCardElement);
     }
     
 

@@ -11,6 +11,12 @@ class Game {
 
 
         };
+    };
+
+    init () {
+        this.player1 = new Player(1, []);
+        this.player1.init();
+        this.player1.render();
     }
 
 }

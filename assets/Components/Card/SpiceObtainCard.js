@@ -1,8 +1,8 @@
 class SpiceObtainCard extends Card {
 
     constructor (spiceList){
+        super();
         this._spiceList = spiceList;
-
         this._domElement = null;
     }
 
@@ -11,11 +11,13 @@ class SpiceObtainCard extends Card {
     }
 
     render () {
+        debugger;
         const cardElement = $('<div>')
-                                .addClass('card spice-obtain-card')
+                                .addClass('card obtain-card')
                                 .on({
                                     'click': this.cardClickHandler
                                 });
+        return cardElement;
     
     }
 }
