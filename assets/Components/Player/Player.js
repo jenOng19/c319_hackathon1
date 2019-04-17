@@ -8,10 +8,8 @@ class Player {
         this._selectedSpice = null;
         this._selectedCards = null;
         this._domElement = {
-
-
         };
     }
-
+    
 
 }
