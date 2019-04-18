@@ -32,19 +32,6 @@
     display: flex;
 }
 
-.rulesModal{
-    height: 100%;
-    background-image: url('../../../images/rules1.jpg');
-    background-image: url('../../../images/rules2.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.rules{
-    height: 100%;
-    width: 100%;
-}
-
 h1 {
     text-align: center;
     padding: 25px 0;

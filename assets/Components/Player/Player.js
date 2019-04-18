@@ -25,8 +25,6 @@ class Player {
         for(let colorSpices of this.arrayOfSpices){
             this._domElement.push(colorSpices);
         }
-    
-
 
         for (let card of this._cardsInHand) {
 
@@ -36,10 +34,10 @@ class Player {
                 else {
                     this._cardsObjInHand.push(new SpiceUpgradeCard(card.upgradeTimes, '','',this.cardClickHander)); 
                 }
-            
-
         }
     }
+
+
 
 
     get spiceList (){
@@ -47,7 +45,7 @@ class Player {
     }
 
     get points () {
-        return this._points
+        return this._points;
     }
     
     cardClickHander = (cardObj) => {
@@ -84,16 +82,12 @@ class Player {
     }
 
     render (){
-
         $('.spice-collection').append(this._domElement);
-
 
         for (let cardObj of this._cardsObjInHand) {
             const cardElement = cardObj.render();
             $('.active-cards').append(cardElement);
         }
-
-
     }
     
 
