@@ -9,6 +9,7 @@ class Game {
         this._merchantCardsonBoard = [];
         this._playerInitialCards = [spiceObtainCards[0], spiceUpgradeCards[0]];
         this._currentPlayerIndex = 0;
+        this._currentPlayer = null;
         this._playerObjList = [];
 
         this._domElement = null;
@@ -34,12 +35,14 @@ class Game {
 
         for (let counter = 0; counter < this._numberOfPlayers; counter ++) {
             const player = new Player(counter, this._playerInitialCards);
-            this.player.init();
-            this.player.render();
+            player.init();
+            player.render();
             this._playerObjList.push(player);
         }
 
-        $('.end-turn').click(this.)
+        $('.end-turn').click(this.switchPlayer);
+        this._currentPlayer = this._playerObjList[0];
+        $('.player1').addClass('active-player');
     }
 
     get currentPlayer () {
@@ -48,33 +51,40 @@ class Game {
 
     
     switchPlayer = () =>{
-        
+        this._currentPlayerIndex ++;
+        if (this._currentPlayerIndex >= this._numberOfPlayers) {
+            this._currentPlayerIndex = 0;
+            $('.player1').addClass('active-player');
+        } else {
+            $('.player2').addClass('active-player');
+        }
+        this._currentPlayer = this._playerObjList[this._currentPlayerIndex];
+
     }
-    active-player
     cardClickHander = (cardObj) => {
         switch (cardObj.constructor) {
             case PointCard : 
-            const afforable = this.player1.paySpices(cardObj.spiceList);
+            const afforable = this._currentPlayer.paySpices(cardObj.spiceList);
             if (afforable) {
-                    this.player1.addPoints(cardObj.points);
+                    this._currentPlayer.addPoints(cardObj.points);
                     this._pointsCardsOnBoard = this._pointsCardsOnBoard.filter((card) => card !== cardObj);                
-                    this.player1.render();
+                    this._currentPlayer.render();
                     this.render();
                 }
 
                 break;
             case SpiceTradeCard :
                 
-                this.player1.acquireACard(cardObj);
+                this._currentPlayer.acquireACard(cardObj);
                 this._merchantCardsonBoard = this._merchantCardsonBoard.filter((card) => card !== cardObj);
-                this.player1.render();
+                this._currentPlayer.render();
                 this.render();
             
                 break;
             case SpiceObtainCard :
-                this.player1.acquireACard(cardObj);
+                this._currentPlayer.acquireACard(cardObj);
                 this._merchantCardsonBoard = this._merchantCardsonBoard.filter((card) => card !== cardObj);
-                this.player1.render();
+                this._currentPlayer.render();
                 this.render();
                 break;
         }
