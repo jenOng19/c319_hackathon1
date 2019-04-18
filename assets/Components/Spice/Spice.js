@@ -2,8 +2,8 @@ class Spice {
 
     constructor ( color, callBack ) {
         this._color = color;
-        this.callBack=this.callBack;
-        this._domElement = [];
+        this.callBack= callBack;
+        this._domElement = null;
     }
 
     spiceClickHandler= () => {
@@ -11,17 +11,13 @@ class Spice {
     }
 
     render(){
-        // const spiceContainer=$('<div>')
-        //                         .addClass('spice-collection flex flex-left')
-        //                         .on({
-        //                             'click': this.callBack
-        //                         });
-        let color;
-        for(color in this._color){
-            for(var colorIndex=this._color[color]; colorIndex>0;colorIndex--){
-                this._domElement.push($('<div>').addClass('spice '+ color))     
-            }
-        }
+
+        this._domElement = $('<div>')
+                            .addClass('spice '+ this._color)
+                            .on({
+                                'click': this.spiceClickHandler
+                            })   
+        
         return this._domElement;
     }
 

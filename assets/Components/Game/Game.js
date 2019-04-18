@@ -55,14 +55,24 @@ class Game {
     }
 
     cardClickHander = (cardObj) => {
+        debugger;
         switch (cardObj.constructor) {
             case SpiceTradeCard :
                 this.player1.paySpices(cardObj.requestSpiceList);
                 this.player1.acquireSpices(cardObj.acquireSpiceList);
+                this.player1.acquireACard(cardObj);
+                this.player1.render();
                 break;
             case PointCard : 
                 this.player1.paySpices(cardObj.spiceList);
                 this.player1.addPoints(cardObj.points);
+                this.player1.acquireACard(cardObj);
+                this.player1.render();
+                break;
+            case SpiceObtainCard :
+                this.player1.acquireSpices(cardObj.spiceList);
+                this.player1.acquireACard(cardObj);
+                this.player1.render();
                 break;
         }
 
