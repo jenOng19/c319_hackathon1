@@ -38,11 +38,10 @@ const spiceTradeCards = [
 
 const spiceUpgradeCards = [
     {
-        upgradeTime : 2
+        upgradeTimes : 2
     }
     // do we have another free update card in game??? If yes, make more here.
 ]
 
 
-const playerInitialCards = [spiceObtainCards[0], spiceUpgradeCards[0]]
  
