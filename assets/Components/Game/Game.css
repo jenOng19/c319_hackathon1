@@ -1,5 +1,22 @@
 .game-area{
     flex: 1;
+    flex-direction: column;
+    background-image: url(../../images/game-bg1.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+.help-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #FFF;
+    border-radius: 50%;
+    background-color: #fff;
+    background-image: url(../../images/help-button.svg);
+    background-size: cover;
 }
 
 .game-container {
@@ -18,11 +35,27 @@
 }
 
 .available-spices {
-    padding-bottom: 0;
+    max-width: 900px;
+    width: 100%;
+    margin: auto;
+    padding: 0 5px 0;
 }
 
 .spice-title {
     text-orientation: upright;
+}
+
+.spice-bowl.yellow {
+    background-image: url(../../images/bowl-cube-yellow.jpg);
+}
+.spice-bowl.red {
+    background-image: url(../../images/bowl-cube-red.jpg);
+}
+.spice-bowl.green {
+    background-image: url(../../images/bowl-cube-green.jpg);
+}
+.spice-bowl.brown {
+    background-image: url(../../images/bowl-cube-brown.jpg);
 }
 
 .spice-bowl {
@@ -30,21 +63,27 @@
     height: 140px;
     border-radius: 50%;
     border: 5px solid #000;
+    background-size: cover;
 }
 
-.spice-bowl.yellow {
-    background: url(../../images/bowl-cube-yellow.jpg);
-    background-size: cover;
+.modal-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.5);
+    z-index: 1;
 }
-.spice-bowl.red {
-    background: url(../../images/bowl-cube-red.jpg);
-    background-size: cover;
-}
-.spice-bowl.green {
-    background: url(../../images/bowl-cube-green.jpg);
-    background-size: cover;
-}
-.spice-bowl.brown {
-    background: url(../../images/bowl-cube-brown.jpg);
-    background-size: cover;
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+    width: 100%;
+    max-height: 300px;
+    height: 100%;
+    background-color: #FFF;
+    z-index: 2;
 }

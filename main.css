@@ -26,6 +26,23 @@
     justify-content: space-between;
 }
 
+
+.gray {
+    background-color: gray;
+}
+.yellow {
+    background-color: #fbcb65;
+}
+.red {
+    background-color: #e62b3e;
+}
+.green {
+    background-color: #a3ba46;
+}
+.brown {
+    background-color: #9e6351;
+}
+
 .container {
     position: relative;
     width: 100%;
@@ -37,4 +54,8 @@
 h1 {
     text-align: center;
     padding: 25px 0;
+}
+
+.arrow {
+    font-weight: bold;
 }

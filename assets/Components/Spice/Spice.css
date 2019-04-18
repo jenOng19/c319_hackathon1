@@ -1,3 +1,10 @@
+.player1 .spice-collection {
+    background-image: url(../../images/spice-collection-1.jpg);
+}
+.player2 .spice-collection {
+    background-image: url(../../images/spice-collection-2.jpg);
+}
+
 .spice-collection {
     width: 400px;
     min-height: 176px;
@@ -5,33 +12,8 @@
     padding: 15px;
     border: 1px solid #000;
     background-color: #000;
-}
-
-.player1 .spice-collection {
-    background: url(../../images/spice-collection-1.jpg);
-    background-size: cover;
-    background-position: center;
-}
-.player2 .spice-collection {
-    background: url(../../images/spice-collection-2.jpg);
     background-size: cover; 
     background-position: center;
-}
-
-.gray {
-    background-color: gray;
-}
-.yellow {
-    background-color: #fbcb65;
-}
-.red {
-    background-color: #e62b3e;
-}
-.green {
-    background-color: #a3ba46;
-}
-.brown {
-    background-color: #9e6351;
 }
 
 .spice.gray {

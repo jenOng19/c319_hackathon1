@@ -1,14 +1,14 @@
 .obtain-card {
-    background: url(../../images/card-obtain.jpg);
+    background-image: url(../../images/card-obtain.jpg);
 }
 .point-card {
-    background: url(../../images/card-point.jpg);
+    background-image: url(../../images/card-point.jpg);
 }
 .trade-card {
-    background: url(../../images/card-trade.jpg);
+    background-image: url(../../images/card-trade.jpg);
 }
 .upgrade-card {
-    background: url(../../images/card-upgrade.jpg);
+    background-image: url(../../images/card-upgrade.jpg);
 }
 .card {
     width: 100px;
@@ -30,6 +30,14 @@
 .merchant-cards .card, .point-cards .card {
     width: 130px;
     height: 225px;
+}
+
+.merchant-card.card{
+    border: 5px solid #71418b;
+}
+
+.point-card.card {
+    border: 5px solid #e78a58;
 }
 
 .point-cards .card {
@@ -70,19 +78,19 @@
 }
 
 .card-spice.gray {
-    background: url(../../images/cube-gray.svg);
+    background-image: url(../../images/cube-gray.svg);
 }
 .card-spice.yellow {
-    background: url(../../images/cube-yellow.svg);
+    background-image: url(../../images/cube-yellow.svg);
 }
 .card-spice.red {
-    background: url(../../images/cube-red.svg);
+    background-image: url(../../images/cube-red.svg);
 }
 .card-spice.green {
-    background: url(../../images/cube-green.svg);
+    background-image: url(../../images/cube-green.svg);
 }
 .card-spice.brown {
-    background: url(../../images/cube-brown.svg);
+    background-image: url(../../images/cube-brown.svg);
 }
 
 .card-spice {
@@ -90,6 +98,7 @@
     height: 27px;
     margin: 5px;
     background-size: cover;
+    background-color: transparent;
 }
 
 
