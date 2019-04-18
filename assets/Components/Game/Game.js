@@ -55,24 +55,30 @@ class Game {
     }
 
     cardClickHander = (cardObj) => {
-        debugger;
         switch (cardObj.constructor) {
-            case SpiceTradeCard :
-                this.player1.paySpices(cardObj.requestSpiceList);
-                this.player1.acquireSpices(cardObj.acquireSpiceList);
-                this.player1.acquireACard(cardObj);
-                this.player1.render();
-                break;
             case PointCard : 
-                this.player1.paySpices(cardObj.spiceList);
-                this.player1.addPoints(cardObj.points);
+            const afforable = this.player1.paySpices(cardObj.spiceList);
+            if (afforable) {
+                    this.player1.addPoints(cardObj.points);
+                    this._pointsCardsOnBoard = this._pointsCardsOnBoard.filter((card) => card !== cardObj);                
+                    this.player1.render();
+                    this.render();
+                }
+
+                break;
+            case SpiceTradeCard :
+                
                 this.player1.acquireACard(cardObj);
+                this._merchantCardsonBoard = this._merchantCardsonBoard.filter((card) => card !== cardObj);
                 this.player1.render();
+                this.render();
+            
                 break;
             case SpiceObtainCard :
-                this.player1.acquireSpices(cardObj.spiceList);
                 this.player1.acquireACard(cardObj);
+                this._merchantCardsonBoard = this._merchantCardsonBoard.filter((card) => card !== cardObj);
                 this.player1.render();
+                this.render();
                 break;
         }
 
@@ -81,6 +87,8 @@ class Game {
 
 
     render (){
+        $('.merchant-cards').empty();
+        $('.point-cards').empty();
 
         for (let pointCardObj of this._pointsCardsOnBoard) {
             const pointCardElement = pointCardObj.render();

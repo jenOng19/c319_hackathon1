@@ -6,12 +6,7 @@ class Player {
         this._cardsObjInHand = [];
         this._cardsObjPlayedOut = [];
         
-        this._spiceList = {
-            yellow : 2,
-            red : 1,
-            green: 1,
-            brown: 1
-        };
+        this._spiceList = ['yellow','yellow','yellow','red','red','green','brown']
         this._spiceObjList = [];
         this._points = 0;
         this._selectedSpice = null;
@@ -22,23 +17,33 @@ class Player {
 
     init () {
         
-        for(let spice in this._spiceList){
-            for (let count = 0; count < this._spiceList[spice]; count ++) {
-                this._spiceObjList.push(new Spice(spice, null))
-            }
-        }
 
+        this.updateSpiceObjList ();
+        this.updateCardsObjInHand ();
+
+
+    }
+
+    updateSpiceObjList (){
+        this._spiceObjList = [];
+        for(let spice of this._spiceList){
+            this._spiceObjList.push(new Spice(spice, null))
+        }    
+    }
+
+    updateCardsObjInHand () {
 
         for (let card of this._cardsInHand) {
 
-                if (card.upgradeTimes === undefined) {
-                    this._cardsObjInHand.push(new SpiceObtainCard(card.obtainSpices, '','',this.cardClickHander));
-                } 
-                else {
-                    this._cardsObjInHand.push(new SpiceUpgradeCard(card.upgradeTimes, '','',this.cardClickHander)); 
-                }
+            if (card.upgradeTimes === undefined) {
+                this._cardsObjInHand.push(new SpiceObtainCard(card.obtainSpices, '','',this.cardClickHander));
+            } 
+            else {
+                this._cardsObjInHand.push(new SpiceUpgradeCard(card.upgradeTimes, '','',this.cardClickHander)); 
+            }
         }
     }
+
 
 
 
@@ -54,30 +59,59 @@ class Player {
     cardClickHander = (cardObj) => {
         switch (cardObj.constructor) {
             case SpiceObtainCard :
-                for (let spice of cardObj.spiceList) {
-                    this._spiceList[spice] += 1;
-                }
+                this.acquireSpices(cardObj.spiceList);
+
+                this._cardsObjPlayedOut.push(cardObj);
+                this._cardsObjInHand = this._cardsObjInHand.filter((card) => card !== cardObj);
+                cardObj.callBack = null;
+                this.render();
                 break;
             case SpiceUpgradeCard : 
                 for (let i = 0; i < cardObj.upgradeTimes; i++){
                     this.spiceList.yellow--;
                     this.spiceList.red ++;
                 }
+                this._cardsObjPlayedOut.push(cardObj);
+                this._cardsObjInHand = this._cardsObjInHand.filter((card) => card !== cardObj);
+                cardObj.callBack = null;
+                this.render();
+
+                break;
+            case SpiceTradeCard : 
+                const afforable = this.paySpices(cardObj.requestSpiceList);
+                if (afforable){
+                    this.acquireSpices(cardObj.acquireSpiceList);
+                    this._cardsObjPlayedOut.push(cardObj);
+                    this._cardsObjInHand = this._cardsObjInHand.filter((card) => card !== cardObj);
+                    cardObj.callBack = null;
+                    this.render();
+                }
                 break;
         }
 
+        
     }
 
     acquireSpices(spiceList) {
         for (let spice of spiceList) {
-            this._spiceList[spice] += 1;
+            this._spiceList.push(spice)
         }
     }
 
     paySpices(spiceList) {
+        const tempSpiceList = [...this._spiceList]
         for (let spice of spiceList) {
-            this._spiceList[spice] -= 1;
+            if (tempSpiceList.indexOf(spice) > -1) {
+                tempSpiceList.splice(tempSpiceList.indexOf(spice) , 1 );
+
+            } else {
+                console.log('You cant afford it...')
+                return false;
+            }
         }
+        this._spiceList = tempSpiceList;
+        console.log('Purchased.')
+        return true;
     }
     
     addPoints (points) {
@@ -85,13 +119,19 @@ class Player {
     }
 
     acquireACard (cardObj) {
+
+        cardObj.callBack = this.cardClickHander
         this._cardsObjInHand.push(cardObj);
+
     }
 
     render (){
         $('.spice-collection').empty();
         $('.active-cards').empty();
         $('.inactive-cards').empty();
+
+        this.updateSpiceObjList ();
+
 
         for (let spiceObj of this._spiceObjList) {
             const spiceElement = spiceObj.render();
@@ -101,6 +141,11 @@ class Player {
         for (let cardObj of this._cardsObjInHand) {
             const cardElement = cardObj.render();
             $('.active-cards').append(cardElement);
+        }
+
+        for (let cardObj of this._cardsObjPlayedOut) {
+            const cardElement = cardObj.render();
+            $('.inactive-cards').append(cardElement);
         }
     }
     
