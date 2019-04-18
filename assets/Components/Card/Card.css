@@ -11,16 +11,20 @@
     background-image: url(../../images/card-upgrade.jpg);
 }
 .card {
-    width: 100px;
-    height: 150px;
+    width: 130px;
+    height: 225px;
     margin: 5px;
     background-size: cover;
     border: 5px solid #000;
     border-radius: 15px;
+    box-shadow: 5px 10px 8px rgba(0,0,0,.8);
 }
 
 .inactive-cards .card {
     opacity: .6;
+}
+.inactive-cards .card:not(:first-child), .active-cards .card:not(:first-child) {
+    margin-left:-50px;
 }
 
 .active-cards {
@@ -30,12 +34,6 @@
 .merchant-cards, .conversion-cards {
     padding: 15px 0;
 }
-
-.merchant-cards .card, .point-cards .card {
-    width: 130px;
-    height: 225px;
-}
-
 .merchant-card.card{
     border: 5px solid #71418b;
 }
@@ -79,6 +77,11 @@
     width: 25px;
     height: 25px;
     margin: 5px;
+}
+
+.trade-arrow.arrow{
+    background-image: url(../../images/down-arrow.svg);
+    background-size: cover;
 }
 
 .card-spice.gray {
