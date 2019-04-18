@@ -1,11 +1,11 @@
 const pointCards = [
     {
         requestSpices : ['red', 'red', 'green', 'brown'],
-        point : 12
+        points : 12
     },
     {
         requestSpices : ['yellow', 'yellow', 'green', 'green', 'brown', 'brown'],
-        point : 17
+        points : 17
 
     }
     //....make a few data
@@ -43,4 +43,6 @@ const spiceUpgradeCards = [
     // do we have another free update card in game??? If yes, make more here.
 ]
 
+
+const playerInitialCards = [spiceObtainCards[0], spiceUpgradeCards[0]]
  

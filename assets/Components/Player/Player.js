@@ -19,11 +19,11 @@ class Player {
 
     init () {
 
-        this.spiceObtainCard = new SpiceObtainCard(['yellow', 'yellow','green'],'','', this.cardHandler);
-        this.spiceObtainCardElement = this.spiceObtainCard.render();
+        // this.spiceObtainCard = new SpiceObtainCard(['yellow', 'yellow','green'],'','', this.cardHandler);
+        // this.spiceObtainCardElement = this.spiceObtainCard.render();
 
-        this.spiceUpgradeCard = new SpiceUpgradeCard(2,'','', this.cardHandler);
-        this.spiceUpgradeCardElement = this.spiceUpgradeCard.render();
+        // this.spiceUpgradeCard = new SpiceUpgradeCard(2,'','', this.cardHandler);
+        // this.spiceUpgradeCardElement = this.spiceUpgradeCard.render();
     }
 
     get spiceList (){

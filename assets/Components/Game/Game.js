@@ -3,9 +3,13 @@
 class Game {
 
     constructor(numberOfPlayers) {
-        this.spicesOrder = ['yellow', 'red', 'green', 'brown'];
+        this._spicesOrder = ['yellow', 'red', 'green', 'brown'];
         this._numberOfPlayers = numberOfPlayers;
-        this._pointCardsOnBoard = [];
+        this._numberOfPointsCards = 5;
+        this._pointsCardsOnBoard = [];
+        this._numberOfMerchantCards = 6;
+        this._merchantCardsonBoard = [];
+
         this._domElement = null;
 
         this.handleRules=this.handleRules.bind(this);
@@ -20,16 +24,33 @@ class Game {
         $('.game-container').toggleClass('hide');
     }
 
+    
     init () {
-        this.player1 = new Player(1, []);
+        this.cardDealer = new CardDealer();
+
+
+        for (let count = 0; count < this._numberOfPointsCards; count++) {
+            const pointsCardData = this.cardDealer.dealAPointCard();
+            console.log(pointsCardData)
+            this._pointsCardsOnBoard.push(new PointCard(pointsCardData.requestSpices, pointsCardData.points, '','',this.cardClickHander));
+        }
+
+        for (let count = 0; count < this._numberOfMerchantCards; count++) {
+            const pointsCardData = this.cardDealer.dealAMerchantCard();
+            if (pointsCardData.requestSpices === undefined) {
+                this._merchantCardsonBoard.push(new SpiceObtainCard(pointsCardData.obtainSpices, '','',this.cardClickHander));
+            } 
+            else {
+                this._merchantCardsonBoard.push(new SpiceTradeCard(pointsCardData.requestSpices, pointsCardData.obtainSpices, '','',this.cardClickHander)); 
+            }
+        }
+
+        this.player1 = new Player(1, playerInitialCards);
         this.player1.init();
         this.player1.render();
 
-        this.spiceTradeCard = new SpiceTradeCard(['yellow', 'yellow','yellow'], ['red', 'red'], '', '', this.cardClickHander)
-        this.spiceTradeCardElement = this.spiceTradeCard.render();
         
-        this.pointCard = new PointCard(['yellow','yellow'], 10, '','',this.cardClickHander)
-        this.pointCardElement = this.pointCard.render();
+
     }
 
     cardClickHander = (cardObj) => {
@@ -50,8 +71,15 @@ class Game {
 
 
     render (){
-        $('.point-cards').append(this.pointCardElement);
-        $('.merchant-cards').append(this.spiceTradeCardElement);
+
+        for (let pointCardObj of this._pointsCardsOnBoard) {
+            const pointCardElement = pointCardObj.render();
+            $('.point-cards').append(pointCardElement);
+        }
+        for (let merchantCardObj of this._merchantCardsonBoard) {
+            const merchantCardElement = merchantCardObj.render();
+            $('.merchant-cards').append(merchantCardElement);
+        }
 
     }
     
