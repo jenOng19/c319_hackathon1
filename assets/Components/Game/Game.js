@@ -7,7 +7,18 @@ class Game {
         this._numberOfPlayers = numberOfPlayers;
         this._pointCardsOnBoard = [];
         this._domElement = null;
+
+        this.handleRules=this.handleRules.bind(this);
     };
+
+    addEventHandlers(){
+        $('.rulesButton').click(this.handleRules);
+    }
+
+    handleRules(){
+        $('.rulesModal').removeClass('hide');
+        $('.game-container').toggleClass('hide');
+    }
 
     init () {
         this.player1 = new Player(1, []);

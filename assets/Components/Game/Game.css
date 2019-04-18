@@ -1,5 +1,10 @@
+body{
+    margin: 0;
+}
+
 .game-area{
     flex: 1;
+    overflow: hidden;
 }
 
 .game-container {
@@ -10,7 +15,7 @@
 .merchant-cards .card, .conversion-cards .card {
     width: 130px;
     height: 210px;
-}
+}   
 
 .merchant-cards, .conversion-cards, .available-spices {
     padding: 25px 0;

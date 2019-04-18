@@ -9,7 +9,6 @@ class Player {
             red : 0,
             green: 0,
             brown: 0
-
         };
         this._points = 0;
         this._selectedSpice = null;
@@ -79,3 +78,4 @@ class Player {
 
 
 }
+
