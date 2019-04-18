@@ -20,25 +20,25 @@ class Player {
     }
 
     init () {
-        debugger;
         this.spices=new Spice(this._spiceList);
         this.arrayOfSpices=this.spices.render();
         for(let colorSpices of this.arrayOfSpices){
             this._domElement.push(colorSpices);
         }
-    }
+    
 
 
-    for (let card of this._cardsInHand) {
+        for (let card of this._cardsInHand) {
 
-            if (card.upgradeTimes === undefined) {
-                this._cardsObjInHand.push(new SpiceObtainCard(card.obtainSpices, '','',this.cardClickHander));
-            } 
-            else {
-                this._cardsObjInHand.push(new SpiceUpgradeCard(card.upgradeTimes, '','',this.cardClickHander)); 
-            }
+                if (card.upgradeTimes === undefined) {
+                    this._cardsObjInHand.push(new SpiceObtainCard(card.obtainSpices, '','',this.cardClickHander));
+                } 
+                else {
+                    this._cardsObjInHand.push(new SpiceUpgradeCard(card.upgradeTimes, '','',this.cardClickHander)); 
+                }
+            
+
         }
-
     }
 
 
@@ -89,7 +89,6 @@ class Player {
 
 
         for (let cardObj of this._cardsObjInHand) {
-            console.log(cardObj)
             const cardElement = cardObj.render();
             $('.active-cards').append(cardElement);
         }
