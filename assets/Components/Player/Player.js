@@ -8,9 +8,9 @@ class Player {
         
         this._spiceList = {
             yellow : 2,
-            red : 1,
-            green: 1,
-            brown: 1
+            red : 0,
+            green: 0,
+            brown: 0
         };
         this._spiceObjList = [];
         this._points = 0;
@@ -54,18 +54,23 @@ class Player {
     cardClickHander = (cardObj) => {
         switch (cardObj.constructor) {
             case SpiceObtainCard :
-                for (let spice of cardObj.spiceList) {
-                    this._spiceList[spice] += 1;
+                for (let color of cardObj.spiceList) {
+                    this._spiceObjList.push(new Spice(color, null))
                 }
+                this._cardsObjInHand = this._cardsObjInHand.filter((card) => card !== cardObj);
+                this._cardsObjPlayedOut.push(cardObj);
+                this.render();
                 break;
             case SpiceUpgradeCard : 
                 for (let i = 0; i < cardObj.upgradeTimes; i++){
                     this.spiceList.yellow--;
                     this.spiceList.red ++;
                 }
+
                 break;
         }
 
+        
     }
 
     acquireSpices(spiceList) {
@@ -85,6 +90,10 @@ class Player {
     }
 
     acquireACard (cardObj) {
+        debugger;
+        console.log(cardObj);
+
+        cardObj.callBack = this.cardClickHander
         this._cardsObjInHand.push(cardObj);
     }
 
@@ -101,6 +110,11 @@ class Player {
         for (let cardObj of this._cardsObjInHand) {
             const cardElement = cardObj.render();
             $('.active-cards').append(cardElement);
+        }
+
+        for (let cardObj of this._cardsObjPlayedOut) {
+            const cardElement = cardObj.render();
+            $('.inactive-cards').append(cardElement);
         }
     }
     
