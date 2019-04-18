@@ -1,5 +1,4 @@
 class Card {
-
     constructor (frontImgUrl, backImgUrl, callBack){
         this._frontImgUrl = frontImgUrl;
         this._backImgUrl = backImgUrl;
@@ -8,7 +7,5 @@ class Card {
 
     cardClickHandler = () => {
         this.callBack(this)
-    }
-
-    
+    }  
 }

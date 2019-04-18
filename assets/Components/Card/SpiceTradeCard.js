@@ -1,5 +1,4 @@
 class SpiceTradeCard extends Card {
-
     constructor (requestSpiceList, acquireSpiceList, ...extraArguments){
         super(...extraArguments);
         this._requestSpiceList = requestSpiceList;
@@ -10,9 +9,11 @@ class SpiceTradeCard extends Card {
     get requestSpiceList(){
         return this._requestSpiceList;
     }
+
     get acquireSpiceList(){
         return this._acquireSpiceList;
     }
+    
     render () {
         const cardElement = $('<div>')
                                 .addClass('card merchant-card trade-card')
@@ -39,8 +40,6 @@ class SpiceTradeCard extends Card {
         cardFunctionElement.append(tradeSpiceObtainedElement);
         cardElement.append(cardFunctionElement);
         return cardElement;
-    
     }
-
 }
 

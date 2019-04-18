@@ -1,5 +1,3 @@
-
-
 class Game {
 
     constructor(numberOfPlayers) {
@@ -11,25 +9,11 @@ class Game {
         this._merchantCardsonBoard = [];
         this._playerInitialCards = [spiceObtainCards[0], spiceUpgradeCards[0]];
 
-
         this._domElement = null;
-
-        this.handleRules=this.handleRules.bind(this);
     };
 
-    addEventHandlers(){
-        $('.rulesButton').click(this.handleRules);
-    }
-
-    handleRules(){
-        $('.rulesModal').removeClass('hide');
-        $('.game-container').toggleClass('hide');
-    }
-
-    
     init () {
         this.cardDealer = new CardDealer();
-
 
         for (let count = 0; count < this._numberOfPointsCards; count++) {
             const pointsCardData = this.cardDealer.dealAPointCard();
@@ -49,9 +33,6 @@ class Game {
         this.player1 = new Player(1, this._playerInitialCards);
         this.player1.init();
         this.player1.render();
-
-        
-
     }
 
     cardClickHander = (cardObj) => {
@@ -75,13 +56,9 @@ class Game {
                 this.player1.render();
                 break;
         }
-
-
     }
 
-
     render (){
-
         for (let pointCardObj of this._pointsCardsOnBoard) {
             const pointCardElement = pointCardObj.render();
             $('.point-cards').append(pointCardElement);
@@ -90,11 +67,5 @@ class Game {
             const merchantCardElement = merchantCardObj.render();
             $('.merchant-cards').append(merchantCardElement);
         }
-
     }
-    
-
-    
-
-
 }

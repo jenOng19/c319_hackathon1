@@ -7,41 +7,35 @@ class Player {
         this._cardsObjPlayedOut = [];
         
         this._spiceList = {
-            yellow : 2,
-            red : 1,
-            green: 1,
-            brown: 1
+            yellow : 3,
+            red : 0,
+            green: 0,
+            brown: 0
         };
+
         this._spiceObjList = [];
         this._points = 0;
         this._selectedSpice = null;
         this._selectedCards = null;
         this._domElement = [];
-
     }
 
     init () {
-        
         for(let spice in this._spiceList){
             for (let count = 0; count < this._spiceList[spice]; count ++) {
                 this._spiceObjList.push(new Spice(spice, null))
             }
         }
 
-
         for (let card of this._cardsInHand) {
-
-                if (card.upgradeTimes === undefined) {
-                    this._cardsObjInHand.push(new SpiceObtainCard(card.obtainSpices, '','',this.cardClickHander));
-                } 
-                else {
-                    this._cardsObjInHand.push(new SpiceUpgradeCard(card.upgradeTimes, '','',this.cardClickHander)); 
-                }
+            if (card.upgradeTimes === undefined) {
+                this._cardsObjInHand.push(new SpiceObtainCard(card.obtainSpices, '','',this.cardClickHander));
+            } 
+            else {
+                this._cardsObjInHand.push(new SpiceUpgradeCard(card.upgradeTimes, '','',this.cardClickHander)); 
+            }
         }
     }
-
-
-
 
     get spiceList (){
         return this._spiceList;
@@ -65,7 +59,6 @@ class Player {
                 }
                 break;
         }
-
     }
 
     acquireSpices(spiceList) {
@@ -103,8 +96,5 @@ class Player {
             $('.active-cards').append(cardElement);
         }
     }
-    
-
-
 }
 

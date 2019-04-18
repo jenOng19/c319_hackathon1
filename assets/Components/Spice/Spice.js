@@ -11,16 +11,13 @@ class Spice {
     }
 
     render(){
-
         this._domElement = $('<div>')
                             .addClass('spice '+ this._color)
                             .on({
                                 'click': this.spiceClickHandler
                             })   
-        
         return this._domElement;
     }
-
 }
 
 

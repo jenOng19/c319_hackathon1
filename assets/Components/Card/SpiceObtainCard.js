@@ -1,5 +1,4 @@
 class SpiceObtainCard extends Card {
-
     constructor (spiceList, ...extraArguments){
         super(...extraArguments);
         this._spiceList = spiceList;
@@ -24,10 +23,7 @@ class SpiceObtainCard extends Card {
             obtainSpiceElement.append(spiceElement);
         }
         cardFunctionElement.append(obtainSpiceElement);
-        cardElement.append(cardFunctionElement);
-        
-        
+        cardElement.append(cardFunctionElement); 
         return cardElement;
-    
     }
 }
