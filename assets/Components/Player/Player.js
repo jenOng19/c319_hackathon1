@@ -15,13 +15,21 @@ class Player {
         this._points = 0;
         this._selectedSpice = null;
         this._selectedCards = null;
-        this._domElement = null;
+        this._domElement = [];
 
     }
 
     init () {
+        debugger;
+        this.spices=new Spice(this._spiceList);
+        this.arrayOfSpices=this.spices.render();
+        for(let colorSpices of this.arrayOfSpices){
+            this._domElement.push(colorSpices);
+        }
+    }
 
-        for (let card of this._cardsInHand) {
+
+    for (let card of this._cardsInHand) {
 
             if (card.upgradeTimes === undefined) {
                 this._cardsObjInHand.push(new SpiceObtainCard(card.obtainSpices, '','',this.cardClickHander));
@@ -32,6 +40,7 @@ class Player {
         }
 
     }
+
 
     get spiceList (){
         return this._spiceList;
@@ -74,14 +83,17 @@ class Player {
         this._points += points;
     }
 
-
     render (){
+
+        $('.spice-collection').append(this._domElement);
+
 
         for (let cardObj of this._cardsObjInHand) {
             console.log(cardObj)
             const cardElement = cardObj.render();
             $('.active-cards').append(cardElement);
         }
+
 
     }
     
