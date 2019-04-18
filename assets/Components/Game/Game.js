@@ -55,8 +55,12 @@ class Game {
         if (this._currentPlayerIndex >= this._numberOfPlayers) {
             this._currentPlayerIndex = 0;
             $('.player1').addClass('active-player');
+            $('.player2').removeClass('active-player');
+
         } else {
             $('.player2').addClass('active-player');
+            $('.player1').removeClass('active-player');
+
         }
         this._currentPlayer = this._playerObjList[this._currentPlayerIndex];
 
