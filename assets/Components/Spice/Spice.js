@@ -1,16 +1,30 @@
 class Spice {
 
-    constructor ( color ) {
+    constructor ( color, callBack ) {
         this._color = color;
-        this._domElement = null;
+        this.callBack=this.callBack;
+        this._domElement = [];
+    }
+
+    spiceClickHandler= () => {
+        this.callBack(this);
+    }
+
+    render(){
+        // const spiceContainer=$('<div>')
+        //                         .addClass('spice-collection flex flex-left')
+        //                         .on({
+        //                             'click': this.callBack
+        //                         });
+        let color;
+        for(color in this._color){
+            for(var colorIndex=this._color[color]; colorIndex>0;colorIndex--){
+                this._domElement.push($('<div>').addClass('spice '+ color))     
+            }
+        }
+        return this._domElement;
     }
 
 }
 
-//player property initial spice in hands(yellow, yellow, yellow, yellow) the spices they have
-//player init method loop through array in first step, initiate spice object pass in the colors array
-//store in spice list (player object)
-//1.)render, return dom element
-//in player class, call spice render 
-//add one more parameter called callback in the constructor of the spice 
-//in render method of splice, append the spice click handler function defined in the spice(call callback) pass this back
+
