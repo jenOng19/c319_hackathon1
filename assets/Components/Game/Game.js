@@ -8,6 +8,8 @@ class Game {
         this._numberOfMerchantCards = 6;
         this._merchantCardsonBoard = [];
         this._playerInitialCards = [spiceObtainCards[0], spiceUpgradeCards[0]];
+        this._currentPlayerIndex = 0;
+        this._playerObjList = [];
 
         this._domElement = null;
     };
@@ -30,11 +32,25 @@ class Game {
             }
         }
 
-        this.player1 = new Player(1, this._playerInitialCards);
-        this.player1.init();
-        this.player1.render();
+        for (let counter = 0; counter < this._numberOfPlayers; counter ++) {
+            const player = new Player(counter, this._playerInitialCards);
+            this.player.init();
+            this.player.render();
+            this._playerObjList.push(player);
+        }
+
+        $('.end-turn').click(this.)
     }
 
+    get currentPlayer () {
+        return this._currentPlayer;
+    }
+
+    
+    switchPlayer = () =>{
+        
+    }
+    active-player
     cardClickHander = (cardObj) => {
         switch (cardObj.constructor) {
             case PointCard : 
