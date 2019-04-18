@@ -3,39 +3,52 @@ class Player {
     constructor( id, initialCards ) {
         this._id = id;
         this._cardsInHand = initialCards;
+        this._cardsObjInHand = [];
+        this._cardsObjPlayedOut = [];
         
         this._spiceList = {
             yellow : 4,
             red : 0,
             green: 0,
             brown: 0
-
         };
         this._points = 0;
         this._selectedSpice = null;
         this._selectedCards = null;
-        this._domElement = null;
+        this._domElement = [];
 
     }
 
     init () {
+        this.spices=new Spice(this._spiceList);
+        this.arrayOfSpices=this.spices.render();
+        for(let colorSpices of this.arrayOfSpices){
+            this._domElement.push(colorSpices);
+        }
 
-        // this.spiceObtainCard = new SpiceObtainCard(['yellow', 'yellow','green'],'','', this.cardHandler);
-        // this.spiceObtainCardElement = this.spiceObtainCard.render();
+        for (let card of this._cardsInHand) {
 
-        // this.spiceUpgradeCard = new SpiceUpgradeCard(2,'','', this.cardHandler);
-        // this.spiceUpgradeCardElement = this.spiceUpgradeCard.render();
+                if (card.upgradeTimes === undefined) {
+                    this._cardsObjInHand.push(new SpiceObtainCard(card.obtainSpices, '','',this.cardClickHander));
+                } 
+                else {
+                    this._cardsObjInHand.push(new SpiceUpgradeCard(card.upgradeTimes, '','',this.cardClickHander)); 
+                }
+        }
     }
+
+
+
 
     get spiceList (){
         return this._spiceList;
     }
 
     get points () {
-        return this._points
+        return this._points;
     }
-
-    cardHandler = (cardObj) => {
+    
+    cardClickHander = (cardObj) => {
         switch (cardObj.constructor) {
             case SpiceObtainCard :
                 for (let spice of cardObj.spiceList) {
@@ -49,8 +62,7 @@ class Player {
                 }
                 break;
         }
-        console.log(this._spiceList);
-        console.log(this._points);
+
     }
 
     acquireSpices(spiceList) {
@@ -69,13 +81,16 @@ class Player {
         this._points += points;
     }
 
-
     render (){
-        $('.active-cards').append(this.spiceObtainCardElement);
-        $('.active-cards').append(this.spiceUpgradeCardElement);
+        $('.spice-collection').append(this._domElement);
 
+        for (let cardObj of this._cardsObjInHand) {
+            const cardElement = cardObj.render();
+            $('.active-cards').append(cardElement);
+        }
     }
     
 
 
 }
+

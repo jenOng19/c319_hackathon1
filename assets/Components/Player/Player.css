@@ -10,3 +10,7 @@
     width: 500px;
     height: initial;
 }
+
+.hide{
+    display: none;
+}
