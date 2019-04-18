@@ -5,6 +5,10 @@
     background-color: pink;
     transition: width .5s;
     overflow: hidden;
+    background-image: url(../../images/player-sidebar-bg1.jpg);
+    background-size: cover;
+    border-right: 2px solid #000;
+    box-shadow: 5px 10px;
 }
 
 .player-sidebar.active-player {
@@ -14,6 +18,16 @@
 
 .hide{
     display: none;
+}
+
+.player-sidebar h1{
+    color: white;
+    letter-spacing: 2px;
+    text-shadow:
+        -1px -1px 0 #000,  
+        2px -1px 0 #000,
+        -1px 2px 0 #000,
+        2px 2px 0 #000;
 }
 
 .player-options {
@@ -31,7 +45,81 @@
 
 .score-area {
     position: absolute;
-    top: 10px;
+    top: 0;
     left: 10px;
     font-weight: bold;
+    background-color: #FFF;
+    padding: 10px 10px 15px;
+    box-shadow: 0 5px 5px rgba(0,0,0,.5);
+}
+
+.score-area h4 {
+    font-size:1.2rem;
+    text-decoration: underline;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(48, 53, 65, 0.8);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s
+}
+
+.popup-close:link,
+.popup-close:visited {
+    color: #FFF;
+    text-decoration: none;
+    display: inline-block;
+    transition: all .2s;
+    margin-top: 10px;
+}
+
+.popup-close:hover {
+    color: #71418b;
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 550px;
+    box-shadow: 0 2rem 4rem rgba(48, 53, 65, 0.4);
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(0.5);
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: all .5s;
+    color: #FFF;
+    text-align: center;
+}
+
+.popup:target {
+    opacity: 1;
+    visibility: visible
+}
+
+.popup:target .popup-content {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-options {
+    width: 100%;
+}
+
+.popup-options .btn {
+    text-align: center;
+    display:block;
+    width: 200px;
+    margin: 10px auto;
+    text-align: center;
 }

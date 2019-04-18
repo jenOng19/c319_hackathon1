@@ -1,7 +1,23 @@
+@keyframes pulse {
+    0% {
+        background-color: #71418b;
+        border-color: #71418b;
+    }
+    50% {
+        background-color: #FFF;
+        border-color: #FFF;
+    }
+    100% {
+        background-color: #71418b;
+        border-color: #71418b;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Righteous', cursive;
 }
 
 .flex {
