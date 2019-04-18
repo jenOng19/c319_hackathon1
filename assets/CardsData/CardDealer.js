@@ -1,17 +1,18 @@
 class CardDealer {
 
     constructor (){
-        this.randomGenerator = new RandomGenerator()
+        this.randomGenerator = new RandomGenerator();
+        this.merchantCards = spiceObtainCards.concat(spiceTradeCards);
     }
     
 
     dealAPointCard () {
-        return pointCards[randomGenerator.generate(pointCards.length)]
+        return  pointCards[this.randomGenerator.generate(pointCards.length)];
     }
 
-    // dealASpiceObtainOrTradeCard (){
-    //     return 
-    // }
+    dealAMerchantCard (){
+        return this.merchantCards[this.randomGenerator.generate(this.merchantCards.length)];
+    }
 
 
 
