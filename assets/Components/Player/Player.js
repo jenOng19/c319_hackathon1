@@ -3,6 +3,8 @@ class Player {
     constructor( id, initialCards ) {
         this._id = id;
         this._cardsInHand = initialCards;
+        this._cardsObjInHand = [];
+        this._cardsObjPlayedOut = [];
         
         this._spiceList = {
             yellow : 4,
@@ -27,6 +29,18 @@ class Player {
     }
 
 
+    for (let card of this._cardsInHand) {
+
+            if (card.upgradeTimes === undefined) {
+                this._cardsObjInHand.push(new SpiceObtainCard(card.obtainSpices, '','',this.cardClickHander));
+            } 
+            else {
+                this._cardsObjInHand.push(new SpiceUpgradeCard(card.upgradeTimes, '','',this.cardClickHander)); 
+            }
+        }
+
+    }
+
 
     get spiceList (){
         return this._spiceList;
@@ -35,8 +49,8 @@ class Player {
     get points () {
         return this._points
     }
-
-    cardHandler = (cardObj) => {
+    
+    cardClickHander = (cardObj) => {
         switch (cardObj.constructor) {
             case SpiceObtainCard :
                 for (let spice of cardObj.spiceList) {
@@ -50,8 +64,7 @@ class Player {
                 }
                 break;
         }
-        console.log(this._spiceList);
-        console.log(this._points);
+
     }
 
     acquireSpices(spiceList) {
@@ -71,7 +84,17 @@ class Player {
     }
 
     render (){
+
         $('.spice-collection').append(this._domElement);
+
+
+        for (let cardObj of this._cardsObjInHand) {
+            console.log(cardObj)
+            const cardElement = cardObj.render();
+            $('.active-cards').append(cardElement);
+        }
+
+
     }
     
 

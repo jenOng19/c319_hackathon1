@@ -9,6 +9,8 @@ class Game {
         this._pointsCardsOnBoard = [];
         this._numberOfMerchantCards = 6;
         this._merchantCardsonBoard = [];
+        this._playerInitialCards = [spiceObtainCards[0], spiceUpgradeCards[0]];
+
 
         this._domElement = null;
 
@@ -31,7 +33,6 @@ class Game {
 
         for (let count = 0; count < this._numberOfPointsCards; count++) {
             const pointsCardData = this.cardDealer.dealAPointCard();
-            console.log(pointsCardData)
             this._pointsCardsOnBoard.push(new PointCard(pointsCardData.requestSpices, pointsCardData.points, '','',this.cardClickHander));
         }
 
@@ -45,7 +46,7 @@ class Game {
             }
         }
 
-        this.player1 = new Player(1, playerInitialCards);
+        this.player1 = new Player(1, this._playerInitialCards);
         this.player1.init();
         this.player1.render();
 
@@ -64,8 +65,7 @@ class Game {
                 this.player1.addPoints(cardObj.points);
                 break;
         }
-        console.log(this.player1.spiceList);
-        console.log(this.player1.points);
+
 
     }
 
