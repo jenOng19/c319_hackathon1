@@ -6,6 +6,6 @@ class Card {
     }
 
     cardClickHandler = () => {
-        this.callBack(this)
+        if (this.callBack) this.callBack(this)
     }  
 }
