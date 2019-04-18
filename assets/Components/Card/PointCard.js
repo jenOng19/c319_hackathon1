@@ -24,7 +24,7 @@ class PointCard extends Card {
                                     'click': this.cardClickHandler
                                 });
 
-        const cardPointDisplayElement = $("<div>").addClass("points-display").text("15");
+        const cardPointDisplayElement = $("<div>").addClass("points-display").text(this._points);
         const cardPriceElement = $("<div>").addClass("price flex flex-center");
 
         for (let spice of this._spiceList) {
