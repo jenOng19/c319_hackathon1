@@ -10,6 +10,9 @@
     display: flex;
     flex-wrap: wrap;
 }
+.flex-align-center {
+    align-items: center;
+}
 .flex-left {
     justify-content: flex-start;
 }
@@ -19,8 +22,8 @@
 .flex-right {
     justify-content: flex-end;
 }
-.flex-evenly {
-    justify-content: space-evenly;
+.flex-between {
+    justify-content: space-between;
 }
 
 .container {

@@ -5,6 +5,7 @@
 .game-container {
     max-width: 900px;
     margin: auto;
+    padding: 0 5px;
 }
 
 .merchant-cards .card, .conversion-cards .card {
@@ -13,7 +14,15 @@
 }
 
 .merchant-cards, .conversion-cards, .available-spices {
-    padding: 25px 0;
+    padding: 15px 0;
+}
+
+.available-spices {
+    padding-bottom: 0;
+}
+
+.spice-title {
+    text-orientation: upright;
 }
 
 .spice-bowl {
@@ -21,4 +30,21 @@
     height: 140px;
     border-radius: 50%;
     border: 5px solid #000;
+}
+
+.spice-bowl.yellow {
+    background: url(../../images/bowl-cube-yellow.jpg);
+    background-size: cover;
+}
+.spice-bowl.red {
+    background: url(../../images/bowl-cube-red.jpg);
+    background-size: cover;
+}
+.spice-bowl.green {
+    background: url(../../images/bowl-cube-green.jpg);
+    background-size: cover;
+}
+.spice-bowl.brown {
+    background: url(../../images/bowl-cube-brown.jpg);
+    background-size: cover;
 }
