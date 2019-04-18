@@ -10,6 +10,9 @@
     display: flex;
     flex-wrap: wrap;
 }
+.flex-align-center {
+    align-items: center;
+}
 .flex-left {
     justify-content: flex-start;
 }
@@ -19,8 +22,25 @@
 .flex-right {
     justify-content: flex-end;
 }
-.flex-evenly {
-    justify-content: space-evenly;
+.flex-between {
+    justify-content: space-between;
+}
+
+
+.gray {
+    background-color: gray;
+}
+.yellow {
+    background-color: #fbcb65;
+}
+.red {
+    background-color: #e62b3e;
+}
+.green {
+    background-color: #a3ba46;
+}
+.brown {
+    background-color: #9e6351;
 }
 
 .container {
@@ -35,4 +55,8 @@
 h1 {
     text-align: center;
     padding: 25px 0;
+}
+
+.arrow {
+    font-weight: bold;
 }

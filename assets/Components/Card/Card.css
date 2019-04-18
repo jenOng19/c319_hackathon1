@@ -1,9 +1,22 @@
+.obtain-card {
+    background-image: url(../../images/card-obtain.jpg);
+}
+.point-card {
+    background-image: url(../../images/card-point.jpg);
+}
+.trade-card {
+    background-image: url(../../images/card-trade.jpg);
+}
+.upgrade-card {
+    background-image: url(../../images/card-upgrade.jpg);
+}
 .card {
-    border: 1px solid #000;
     width: 100px;
     height: 150px;
     margin: 5px;
     background-size: cover;
+    border: 5px solid #000;
+    border-radius: 15px;
 }
 
 .inactive-cards .card {
@@ -11,19 +24,20 @@
 }
 
 .merchant-cards, .conversion-cards {
-    padding: 25px 0;
+    padding: 15px 0;
 }
 
 .merchant-cards .card, .point-cards .card {
     width: 130px;
-    height: 210px;
+    height: 225px;
 }
 
-.merchant-card.upgrade-card {
-    background-color: yellow;
+.merchant-card.card{
+    border: 5px solid #71418b;
 }
-.merchant-card.obtain-card {
-    background-color: red;
+
+.point-card.card {
+    border: 5px solid #e78a58;
 }
 
 .point-cards .card {
@@ -35,10 +49,23 @@
 .point-cards .points-display {
     text-align: center;
     font-size: 3rem;
+    color: #FFF;
+    background-color: rgba(0,0,0,.9);
+    display: inline-block;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+.point-cards .price {
+    background-color: rgba(255,255,255,.7);
+    border-radius: 10px;
 }
 
 .card-function {
-    padding: 5px;
+    display: inline-block;
+    background-color: rgba(255,255,255,.8);
+    border-right: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    border-radius: 10px;
 }
 
 .card-function .arrow {
@@ -50,10 +77,28 @@
     margin: 5px;
 }
 
+.card-spice.gray {
+    background-image: url(../../images/cube-gray.svg);
+}
+.card-spice.yellow {
+    background-image: url(../../images/cube-yellow.svg);
+}
+.card-spice.red {
+    background-image: url(../../images/cube-red.svg);
+}
+.card-spice.green {
+    background-image: url(../../images/cube-green.svg);
+}
+.card-spice.brown {
+    background-image: url(../../images/cube-brown.svg);
+}
+
 .card-spice {
-    width: 25px;
-    height: 25px;
+    width: 27px;
+    height: 27px;
     margin: 5px;
+    background-size: cover;
+    background-color: transparent;
 }
 
 
