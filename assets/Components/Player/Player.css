@@ -7,8 +7,14 @@
     overflow: hidden;
     background-image: url(../../images/player-sidebar-bg1.jpg);
     background-size: cover;
-    border-right: 2px solid #000;
     box-shadow: 5px 10px;
+}
+
+.player-sidebar.player1 {
+    border-right: 2px solid #000;
+}
+.player-sidebar.player2 {
+    border-left: 2px solid #000;
 }
 
 .player-sidebar.active-player {
@@ -51,6 +57,21 @@
     background-color: #FFF;
     padding: 10px 10px 15px;
     box-shadow: 0 5px 5px rgba(0,0,0,.5);
+}
+
+.message-area {
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    box-shadow: 0 5px 5px rgba(0,0,0,.5);
+}
+
+.message-text {
+    background-color: #FFF;
+    padding: 15px;
+    max-width: 300px;
+    color: #71418b;
+    border: 1px solid #71418b;
 }
 
 .score-area h4 {
