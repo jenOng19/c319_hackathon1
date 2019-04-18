@@ -5,23 +5,18 @@ class Player {
         this._cardsInHand = initialCards;
         this._cardsObjInHand = [];
         this._cardsObjPlayedOut = [];
-        
         this._spiceList = ['yellow','yellow','yellow','red','red','green','brown']
+
         this._spiceObjList = [];
         this._points = 0;
         this._selectedSpice = null;
         this._selectedCards = null;
         this._domElement = [];
-
     }
 
     init () {
-        
-
         this.updateSpiceObjList ();
         this.updateCardsObjInHand ();
-
-
     }
 
     updateSpiceObjList (){
@@ -43,9 +38,6 @@ class Player {
             }
         }
     }
-
-
-
 
 
     get spiceList (){
@@ -89,7 +81,6 @@ class Player {
                 break;
         }
 
-        
     }
 
     acquireSpices(spiceList) {
@@ -148,8 +139,5 @@ class Player {
             $('.inactive-cards').append(cardElement);
         }
     }
-    
-
-
 }
 

@@ -1,5 +1,4 @@
 class PointCard extends Card {
-
     constructor (spiceList, points, ...extraArguments){
         super(...extraArguments);
         this._spiceList = spiceList;
@@ -15,15 +14,12 @@ class PointCard extends Card {
         return this._points
     }
 
-
-
     render () {
         const cardElement = $('<div>')
                                 .addClass('card point-card')
                                 .on({
                                     'click': this.cardClickHandler
                                 });
-
         const cardPointDisplayElement = $("<div>").addClass("points-display").text(this._points);
         const cardPriceElement = $("<div>").addClass("price flex flex-left");
 
