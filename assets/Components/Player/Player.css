@@ -123,3 +123,9 @@
     margin: 10px auto;
     text-align: center;
 }
+
+.popup-winner h1{
+    font-size: 3rem;
+    margin: 0 0 30px; 
+    border: 10px solid #FFF;
+}
