@@ -23,6 +23,10 @@
     opacity: .6;
 }
 
+.active-cards {
+    padding-bottom: 23%;
+}
+
 .merchant-cards, .conversion-cards {
     padding: 15px 0;
 }

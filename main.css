@@ -25,7 +25,9 @@
 .flex-between {
     justify-content: space-between;
 }
-
+.flex-around {
+    justify-content: space-around;
+}
 
 .gray {
     background-color: gray;
@@ -41,6 +43,15 @@
 }
 .brown {
     background-color: #9e6351;
+}
+
+.btn {
+    padding: 15px 25px;
+    background-color: #71418b;
+    color: #FFF;
+    border: 3px solid #FFF;
+    cursor: pointer;
+    display:inline-block;
 }
 
 .container {
