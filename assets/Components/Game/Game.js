@@ -11,7 +11,19 @@ class Game {
         this._merchantCardsonBoard = [];
 
         this._domElement = null;
+
+        this.handleRules=this.handleRules.bind(this);
     };
+
+    addEventHandlers(){
+        $('.rulesButton').click(this.handleRules);
+    }
+
+    handleRules(){
+        $('.rulesModal').removeClass('hide');
+        $('.game-container').toggleClass('hide');
+    }
+
     
     init () {
         this.cardDealer = new CardDealer();

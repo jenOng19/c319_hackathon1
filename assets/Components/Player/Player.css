@@ -6,7 +6,32 @@
     overflow: hidden;
 }
 
+.playButton{
+    font-size: 5vh;
+    position: relative;
+    left: 22%;
+    top: 100px;
+}
+
+.rulesButton{
+    font-size: 5vh;
+    position: relative;
+    left: 22%;
+    top: 100px;
+}
+
+.aboutButton{
+    font-size: 5vh;
+    position: relative;
+    left: 22%;
+    top: 100px;
+}
+
 .player-sidebar.active-player {
     width: 500px;
     height: initial;
+}
+
+.hide{
+    display: none;
 }

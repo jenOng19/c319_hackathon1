@@ -29,6 +29,20 @@
     height: 100%;
     min-height: 100vh;
     background-color: #f3f3f3;
+    display: flex;
+}
+
+.rulesModal{
+    height: 100%;
+    background-image: url('../../../images/rules1.jpg');
+    background-image: url('../../../images/rules2.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.rules{
+    height: 100%;
+    width: 100%;
 }
 
 h1 {
