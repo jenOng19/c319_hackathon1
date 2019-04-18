@@ -7,11 +7,12 @@ class Player {
         this._cardsObjPlayedOut = [];
         
         this._spiceList = {
-            yellow : 4,
-            red : 0,
-            green: 0,
-            brown: 0
+            yellow : 2,
+            red : 1,
+            green: 1,
+            brown: 1
         };
+        this._spiceObjList = [];
         this._points = 0;
         this._selectedSpice = null;
         this._selectedCards = null;
@@ -20,11 +21,13 @@ class Player {
     }
 
     init () {
-        this.spices=new Spice(this._spiceList);
-        this.arrayOfSpices=this.spices.render();
-        for(let colorSpices of this.arrayOfSpices){
-            this._domElement.push(colorSpices);
+        
+        for(let spice in this._spiceList){
+            for (let count = 0; count < this._spiceList[spice]; count ++) {
+                this._spiceObjList.push(new Spice(spice, null))
+            }
         }
+
 
         for (let card of this._cardsInHand) {
 
@@ -81,9 +84,20 @@ class Player {
         this._points += points;
     }
 
-    render (){
-        $('.spice-collection').append(this._domElement);
+    acquireACard (cardObj) {
+        this._cardsObjInHand.push(cardObj);
+    }
 
+    render (){
+        $('.spice-collection').empty();
+        $('.active-cards').empty();
+        $('.inactive-cards').empty();
+
+        for (let spiceObj of this._spiceObjList) {
+            const spiceElement = spiceObj.render();
+            $('.spice-collection').append(spiceElement);
+        }
+        
         for (let cardObj of this._cardsObjInHand) {
             const cardElement = cardObj.render();
             $('.active-cards').append(cardElement);
