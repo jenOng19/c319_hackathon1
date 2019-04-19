@@ -70,7 +70,7 @@ class Game {
             case PointCard : 
             const afforable = this._currentPlayer.paySpices(cardObj.spiceList);
             if (afforable) {
-                    this._currentPlayer.addPoints(cardObj.points);
+                    this._currentPlayer.purchaseAPointCard(cardObj);
                     this._pointsCardsOnBoard = this._pointsCardsOnBoard.filter((card) => card !== cardObj);                
                     this._currentPlayer.render();
                     this.render();

@@ -5,10 +5,11 @@ class Player {
         this._cardsInHand = initialCards;
         this._cardsObjInHand = [];
         this._cardsObjPlayedOut = [];
-        this._spiceList = ['yellow','yellow','yellow','red','red','green','brown']
+        this._spiceList = ['yellow','yellow','red', 'red','green','brown', 'brown']
 
         this._spiceObjList = [];
         this._points = 0;
+        this._numberOfPointsCards = 0;
         this._selectedSpice = null;
         this._selectedCards = null;
         this._domElement = [];
@@ -106,8 +107,9 @@ class Player {
         return true;
     }
     
-    addPoints (points) {
-        this._points += points;
+    purchaseAPointCard (cardObj) {
+        this._points += cardObj.points;
+        this._numberOfPointsCards ++;
     }
 
     acquireACard (cardObj) {
@@ -125,6 +127,8 @@ class Player {
 
         this.updateSpiceObjList ();
 
+        $('.total-points span').text(this._points);
+        $('.total-cards span').text(this._numberOfPointsCards);
 
         for (let spiceObj of this._spiceObjList) {
             const spiceElement = spiceObj.render();
