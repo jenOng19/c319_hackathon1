@@ -23,7 +23,7 @@ class SpiceTradeCard extends Card {
         const cardFunctionElement = $('<div>').addClass('card-function');
         const tradeSpiceRequestElement = $('<div>').addClass('trade-spice');
         const tradeSpiceObtainedElement= $('<div>').addClass('trade-obtained');
-        const arrow=$('<div>').addClass('trade-arrow arrow').html('<span>&darr;</span>');
+        const arrow=$('<div>').addClass('trade-arrow arrow').html(' ');
         
         for(let spice of this._requestSpiceList){
             const spiceElement=$('<div>').addClass('card-spice ' + spice);
