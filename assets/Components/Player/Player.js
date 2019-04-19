@@ -98,12 +98,20 @@ class Player {
                 tempSpiceList.splice(tempSpiceList.indexOf(spice) , 1 );
 
             } else {
-                $('.message-area').html('<div class="message-text">You cant afford it...</div>');
+                const messageElement=$('.message-area');
+                messageElement.html("<div class='message-text'>You can't afford it...</div>");
+                setTimeout(function(){
+                    messageElement.html(""); 
+                }, 1000);
                 return false;
             }
         }
         this._spiceList = tempSpiceList;
-        console.log('Purchased.')
+        const messageElement=$('.message-area');
+                messageElement.html("<div class='message-text'>Purchased</div>");
+                setTimeout(function(){
+                    messageElement.html(""); 
+                }, 1000);
         return true;
     }
     
