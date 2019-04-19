@@ -29,7 +29,7 @@
 </head>
 <body>
     <div class="container flex">
-        <div class="player1 player-sidebar">
+        <div class="player1 player-sidebar hide">
             <h1>Player 1</h1>
             <div class="inactive-cards flex flex-center">
             </div>
@@ -54,12 +54,14 @@
             <div class="rulesModal hide">
                 <button class="closeButton" type="button">x</button>
             </div>
-            <div class="game-container">
+            <div class="game-container hide">
                 <div class="point-cards flex flex-right"></div>
                 <div class="merchant-cards flex flex-right"></div>
             </div>
+
             <div class="available-spices flex flex-between flex-align-center">
                 <div class="spice-title">Spice<br>Levels</div>
+
                 <div class="spice-bowl yellow"></div>
                 <div class="spice-arrow"></div>
                 <div class="spice-bowl red"></div>
@@ -71,7 +73,7 @@
             <div class="message-area">
                 <!-- <div class="message-text"></div> -->
             </div>
-            <a href="#popup" class="help-btn">&nbsp;</a>
+            <a href="#popup" class="help-btn hide">&nbsp;</a>
         </div>
         <!--Game Area-->
         <div class="player2 player-sidebar">
@@ -136,8 +138,7 @@
                 <a class="popup-close" href="#">&#60; Exit Rules</a>
             </div>
         </div>
-
-
+        <button class='playButton' type='button'>PLAY</button>
     </div>
 </body>
 </html>

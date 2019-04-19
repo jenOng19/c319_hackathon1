@@ -16,6 +16,18 @@ class Game {
         this._domElement = null;
     };
 
+    addEventHandlers(){
+       $('.playButton').click(this.handlePlayButton);
+    }
+
+    handlePlayButton(){
+        $('.playButton').addClass('hide');
+        $('.player1').removeClass('hide');
+        $('.game-container').removeClass('hide');
+        $('.available-spices').removeClass('hide');
+        $('.help-btn').removeClass('hide');
+    }
+
     init () {
         this.cardDealer = new CardDealer();
 
