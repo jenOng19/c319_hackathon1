@@ -38,7 +38,7 @@ class Game {
         }
 
         for (let count = 0; count < this._numberOfMerchantCards; count++) {
-            const merchantCardData = this.cardDealer.dealAMerchantCard();
+            var merchantCardData = this.cardDealer.dealAMerchantCard();
             if (merchantCardData.requestSpices === undefined) {
                 this._merchantCardsonBoard.push(
                     this.dealASpiceObtainCardObj(merchantCardData)
@@ -114,6 +114,17 @@ class Game {
                 
                 this._currentPlayer.acquireACard(cardObj);
                 this._merchantCardsonBoard = this._merchantCardsonBoard.filter((card) => card !== cardObj);
+                var merchantCardData = this.cardDealer.dealAMerchantCard();
+                if (merchantCardData.requestSpices === undefined) {
+                    this._merchantCardsonBoard.push(
+                        this.dealASpiceObtainCardObj(merchantCardData)
+                    );
+                } 
+                else {
+                    this._merchantCardsonBoard.push(
+                        this.dealASpiceTradeCardObj(merchantCardData)
+                    ); 
+                }
                 this._currentPlayer.render();
                 this.render();
             
@@ -121,6 +132,17 @@ class Game {
             case SpiceObtainCard :
                 this._currentPlayer.acquireACard(cardObj);
                 this._merchantCardsonBoard = this._merchantCardsonBoard.filter((card) => card !== cardObj);
+                var merchantCardData = this.cardDealer.dealAMerchantCard();
+                if (merchantCardData.requestSpices === undefined) {
+                    this._merchantCardsonBoard.push(
+                        this.dealASpiceObtainCardObj(merchantCardData)
+                    );
+                } 
+                else {
+                    this._merchantCardsonBoard.push(
+                        this.dealASpiceTradeCardObj(merchantCardData)
+                    ); 
+                }
                 this._currentPlayer.render();
                 this.render();
                 break;
