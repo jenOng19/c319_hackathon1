@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Century Spice Road</title>
+    <link href="https://fonts.googleapis.com/css?family=Kanit:600,700|Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="assets/Components/Card/Card.css">
+    <link rel="stylesheet" href="assets/Components/Game/Game.css">
+    <link rel="stylesheet" href="assets/Components/Player/Player.css">
+    <link rel="stylesheet" href="assets/Components/Spice/Spice.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="assets/CardsData/randomgenerator.js"></script>
+    <script src="assets/CardsData/cardData.js"></script>
+    <script src="assets/CardsData/CardDealer.js"></script>
+    <script src="assets/Components/Card/Card.js"></script>
+    <script src="assets/Components/Spice/Spice.js"></script>
+    <script src="assets/Components/Card/PointCard.js"></script>
+    <script src="assets/Components/Card/SpiceObtainCard.js"></script>
+    <script src="assets/Components/Card/SpiceTradeCard.js"></script>
+    <script src="assets/Components/Card/SpiceUpgradeCard.js"></script>
+    <script src="assets/Components/Player/Player.js"></script>
+    <script src="assets/Components/Game/Game.js"></script>
+    <script src="assets/Components/main.js"></script>
+
+</head>
+<body>
+    <div class="container flex">
+        <div class="player1 player-sidebar">
+            <h1>Player 1</h1>
+            <div class="inactive-cards flex flex-center">
+            </div>
+            <div class="spice-collection flex flex-left"></div>
+            <div class="active-cards flex flex-center"></div>
+            <div class="player-options">
+                <div class="btn rest-cards">Rest Cards</div>
+                <div class="btn end-turn">End turn</div>
+            </div>
+            <div class="score-area">
+                <h4>Score</h4>
+                <div class="total-points">Points: <span></span></div>
+                <div class="total-cards">Cards: <span></span></div>
+            </div>
+        </div>
+        <!--player 1 sidebar-->
+        <div class="game-area flex">
+            <div class="game-area-title">
+                <h1>Century Spice Road Game</h1>
+                <!-- <img src="assets/images/century-logo.png" alt="century spice" /> -->
+            </div>
+            <div class="rulesModal hide">
+                <button class="closeButton" type="button">x</button>
+            </div>
+            <div class="game-container">
+                <div class="point-cards flex flex-right"></div>
+                <div class="merchant-cards flex flex-right"></div>
+            </div>
+            <div class="available-spices flex flex-between flex-align-center">
+                <div class="spice-title">Spice<br>Flow</div>
+                <div class="spice-bowl yellow"></div>
+                <div class="spice-arrow"></div>
+                <div class="spice-bowl red"></div>
+                <div class="spice-arrow"></div>
+                <div class="spice-bowl green"></div>
+                <div class="spice-arrow"></div>
+                <div class="spice-bowl brown"></div>
+            </div>
+            <div class="message-area">
+                <!-- <div class="message-text"></div> -->
+            </div>
+            <a href="#popup" class="help-btn">&nbsp;</a>
+        </div>
+        <!--Game Area-->
+        <div class="player2 player-sidebar">
+            <h1>Player 2</h1>
+            <div class="inactive-cards flex flex-center">
+            </div>
+            <div class="spice-collection flex flex-left">
+            </div>
+            <div class="active-cards flex flex-center">
+            </div>
+            <div class="player-options">
+                <div class="btn rest-cards">Rest Cards</div>
+                <div class="btn end-turn">End turn</div>
+            </div>
+            <div class="score-area">
+                <h4>Score</h4>
+                <div class="total-points">Points: <span></span></div>
+                <div class="total-cards">Cards: <span></span></div>
+            </div>
+        </div>
+        <!--player 2 sidebar-->
+
+
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <div class="heading-secondary">
+                    <h2>Game Information</h2>
+                </div>
+                <div class="popup-options">
+                    <div id="reset-btn" class="btn">Reset Game</div>
+                    <div id="rules-btn" class="btn">Rules</div>
+                    <div id="about-btn" class="btn">About</div>
+                </div>
+                <a class="popup-close" href="#">&#60; Back to Game</a>
+            </div>
+            <a class="help-btn" href="#">&nbsp;</a>
+        </div>
+
+
+        <div class="popup popup-winner" id="popup-winner">
+            <div class="popup-content">
+                <div class="heading-secondary">
+                    <h2>Player <span>1</span> Wins!</h2>
+                </div>
+                <div class="popup-options">
+                    <div id="reset-btn" class="btn">New Game</div>
+                    <div id="rules-btn" class="btn">Rules</div>
+                    <div id="about-btn" class="btn">About</div>
+                </div>
+                <a class="popup-close" href="#">&#60; Back to Game</a>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>
