@@ -156,5 +156,9 @@ class Player {
     get points () {
         return this._points;
     }
+
+    get numberOfPointsCards () {
+        return this._numberOfPointsCards;
+    }
 }
 

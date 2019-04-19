@@ -2,7 +2,10 @@ class Game {
 
     constructor(numberOfPlayers) {
         this._spicesOrder = ['yellow', 'red', 'green', 'brown'];
+
         this._numberOfPlayers = numberOfPlayers;
+        this._maxPointsCards = 1;
+        this._lastTurn = false;
 
         this._numberOfPointsCards = 5;
         this._pointsCardsOnBoard = [];
@@ -16,7 +19,7 @@ class Game {
         this._currentPlayerIndex = 0;
         this._currentPlayer = null;
         this._playerObjList = [];
-        
+
         this.cardDealer = new CardDealer();
         this._domElement = null;
     };
@@ -34,6 +37,8 @@ class Game {
     }
 
     init () {
+
+        this._lastTurn = false;
 
         for (let count = 0; count < this._numberOfPointsCards; count++) {
             this.shuffleANewPointsCardToBoard();
@@ -76,8 +81,23 @@ class Game {
             ); 
         }
     }
+
+    endGame (){
+        if (this._playerObjList[0].points > this._playerObjList[1].points) {
+            console.log("Player 1 is the winner");
+        }
+        else if (this._playerObjList[0].points < this._playerObjList[1].points){
+            console.log("Player 2 is the winner");
+        } else {
+            console.log("It's a tie game");
+        }
+    }
     
     switchPlayer = () => {
+        debugger;
+        if (this._lastTurn) this.endGame();
+        if (this._currentPlayer.numberOfPointsCards === this._maxPointsCards ) this._lastTurn = true;
+
         this._currentPlayerIndex ++;
         if (this._currentPlayerIndex >= this._numberOfPlayers) {
             this._currentPlayerIndex = 0;
@@ -89,6 +109,7 @@ class Game {
             $('.player1').removeClass('active-player');
 
         }
+
         this._currentPlayer = this._playerObjList[this._currentPlayerIndex];
 
     }
