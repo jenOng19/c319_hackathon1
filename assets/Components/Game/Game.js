@@ -3,16 +3,21 @@ class Game {
     constructor(numberOfPlayers) {
         this._spicesOrder = ['yellow', 'red', 'green', 'brown'];
         this._numberOfPlayers = numberOfPlayers;
+
         this._numberOfPointsCards = 5;
         this._pointsCardsOnBoard = [];
+
         this._numberOfMerchantCards = 6;
         this._merchantCardsonBoard = [];
+
         this._playerInitialCards = [spiceObtainCards[0]];
         // this._playerInitialCards = [spiceObtainCards[0], spiceUpgradeCards[0]];
+
         this._currentPlayerIndex = 0;
         this._currentPlayer = null;
         this._playerObjList = [];
-
+        
+        this.cardDealer = new CardDealer();
         this._domElement = null;
     };
 
@@ -29,26 +34,13 @@ class Game {
     }
 
     init () {
-        this.cardDealer = new CardDealer();
 
         for (let count = 0; count < this._numberOfPointsCards; count++) {
-            this._pointsCardsOnBoard.push(
-                this.dealAPointCardObj(this.cardDealer.dealAPointCard())
-            );
+            this.shuffleANewPointsCardToBoard();
         }
 
         for (let count = 0; count < this._numberOfMerchantCards; count++) {
-            var merchantCardData = this.cardDealer.dealAMerchantCard();
-            if (merchantCardData.requestSpices === undefined) {
-                this._merchantCardsonBoard.push(
-                    this.dealASpiceObtainCardObj(merchantCardData)
-                );
-            } 
-            else {
-                this._merchantCardsonBoard.push(
-                    this.dealASpiceTradeCardObj(merchantCardData)
-                ); 
-            }
+            this.shuffleANewMerchantCardToBoard();
         }
 
         for (let counter = 0; counter < this._numberOfPlayers; counter ++) {
@@ -63,23 +55,29 @@ class Game {
         $('.player1').addClass('active-player');
     }
 
-    get currentPlayer () {
-        return this._currentPlayer;
+
+
+    shuffleANewPointsCardToBoard (){
+        this._pointsCardsOnBoard.push(
+            this.transferAPointCardObj(this.cardDealer.dealAPointCard())
+        );
     }
 
-    dealAPointCardObj (pointsCardData) {
-        return new PointCard(pointsCardData.requestSpices, pointsCardData.points, '','',this.cardClickHander)
-    }
-
-    dealASpiceObtainCardObj (spiceObtainCardData) {
-        return new SpiceObtainCard(spiceObtainCardData.obtainSpices, '','',this.cardClickHander)
-    }
-
-    dealASpiceTradeCardObj(spiceTradeCardData) {
-        return new SpiceTradeCard(spiceTradeCardData.requestSpices, spiceTradeCardData.obtainSpices, '','',this.cardClickHander)
+    shuffleANewMerchantCardToBoard (){
+        const merchantCardData = this.cardDealer.dealAMerchantCard();
+        if (merchantCardData.requestSpices === undefined) {
+            this._merchantCardsonBoard.push(
+                this.transferASpiceObtainCardObj(merchantCardData)
+            );
+        } 
+        else {
+            this._merchantCardsonBoard.push(
+                this.transferASpiceTradeCardObj(merchantCardData)
+            ); 
+        }
     }
     
-    switchPlayer = () =>{
+    switchPlayer = () => {
         this._currentPlayerIndex ++;
         if (this._currentPlayerIndex >= this._numberOfPlayers) {
             this._currentPlayerIndex = 0;
@@ -103,7 +101,7 @@ class Game {
                     this._pointsCardsOnBoard = this._pointsCardsOnBoard.filter((card) => card !== cardObj);    
 
                     this._pointsCardsOnBoard.push(
-                        this.dealAPointCardObj(this.cardDealer.dealAPointCard())
+                        this.transferAPointCardObj(this.cardDealer.dealAPointCard())
                     );
                     this._currentPlayer.render();
                     this.render();
@@ -114,17 +112,7 @@ class Game {
                 
                 this._currentPlayer.acquireACard(cardObj);
                 this._merchantCardsonBoard = this._merchantCardsonBoard.filter((card) => card !== cardObj);
-                var merchantCardData = this.cardDealer.dealAMerchantCard();
-                if (merchantCardData.requestSpices === undefined) {
-                    this._merchantCardsonBoard.push(
-                        this.dealASpiceObtainCardObj(merchantCardData)
-                    );
-                } 
-                else {
-                    this._merchantCardsonBoard.push(
-                        this.dealASpiceTradeCardObj(merchantCardData)
-                    ); 
-                }
+                this.shuffleANewMerchantCardToBoard();
                 this._currentPlayer.render();
                 this.render();
             
@@ -132,17 +120,7 @@ class Game {
             case SpiceObtainCard :
                 this._currentPlayer.acquireACard(cardObj);
                 this._merchantCardsonBoard = this._merchantCardsonBoard.filter((card) => card !== cardObj);
-                var merchantCardData = this.cardDealer.dealAMerchantCard();
-                if (merchantCardData.requestSpices === undefined) {
-                    this._merchantCardsonBoard.push(
-                        this.dealASpiceObtainCardObj(merchantCardData)
-                    );
-                } 
-                else {
-                    this._merchantCardsonBoard.push(
-                        this.dealASpiceTradeCardObj(merchantCardData)
-                    ); 
-                }
+                this.shuffleANewMerchantCardToBoard();                
                 this._currentPlayer.render();
                 this.render();
                 break;
@@ -160,5 +138,21 @@ class Game {
             const merchantCardElement = merchantCardObj.render();
             $('.merchant-cards').append(merchantCardElement);
         }
+    }
+
+    get currentPlayer () {
+        return this._currentPlayer;
+    }
+
+    transferAPointCardObj (pointsCardData) {
+        return new PointCard(pointsCardData.requestSpices, pointsCardData.points, '','',this.cardClickHander)
+    }
+
+    transferASpiceObtainCardObj (spiceObtainCardData) {
+        return new SpiceObtainCard(spiceObtainCardData.obtainSpices, '','',this.cardClickHander)
+    }
+
+    transferASpiceTradeCardObj(spiceTradeCardData) {
+        return new SpiceTradeCard(spiceTradeCardData.requestSpices, spiceTradeCardData.obtainSpices, '','',this.cardClickHander)
     }
 }

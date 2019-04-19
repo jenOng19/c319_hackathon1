@@ -42,13 +42,6 @@ class Player {
     }
 
 
-    get spiceList (){
-        return this._spiceList;
-    }
-
-    get points () {
-        return this._points;
-    }
     
     cardClickHander = (cardObj) => {
         switch (cardObj.constructor) {
@@ -152,6 +145,16 @@ class Player {
             const cardElement = cardObj.render();
             $(player +'.inactive-cards').append(cardElement);
         }
+    }
+
+
+    
+    get spiceList (){
+        return this._spiceList;
+    }
+
+    get points () {
+        return this._points;
     }
 }
 
