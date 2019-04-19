@@ -26,6 +26,7 @@ class Player {
         }    
     }
 
+    
     updateCardsObjInHand () {
 
         for (let card of this._cardsInHand) {
@@ -117,26 +118,27 @@ class Player {
     }
 
     render (){
-        $('.spice-collection').empty();
-        $('.active-cards').empty();
-        $('.inactive-cards').empty();
+        let player = this._id === 0 ? '.player1 ' : '.player2 ';
+        $(player + '.spice-collection').empty();
+        $(player +'.active-cards').empty();
+        $(player +'.inactive-cards').empty();
 
         this.updateSpiceObjList ();
 
 
         for (let spiceObj of this._spiceObjList) {
             const spiceElement = spiceObj.render();
-            $('.spice-collection').append(spiceElement);
+            $(player +'.spice-collection').append(spiceElement);
         }
         
         for (let cardObj of this._cardsObjInHand) {
             const cardElement = cardObj.render();
-            $('.active-cards').append(cardElement);
+            $(player +'.active-cards').append(cardElement);
         }
 
         for (let cardObj of this._cardsObjPlayedOut) {
             const cardElement = cardObj.render();
-            $('.inactive-cards').append(cardElement);
+            $(player +'.inactive-cards').append(cardElement);
         }
     }
 }
