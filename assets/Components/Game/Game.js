@@ -7,7 +7,8 @@ class Game {
         this._pointsCardsOnBoard = [];
         this._numberOfMerchantCards = 6;
         this._merchantCardsonBoard = [];
-        this._playerInitialCards = [spiceObtainCards[0], spiceUpgradeCards[0]];
+        this._playerInitialCards = [spiceObtainCards[0]];
+        // this._playerInitialCards = [spiceObtainCards[0], spiceUpgradeCards[0]];
         this._currentPlayerIndex = 0;
         this._currentPlayer = null;
         this._playerObjList = [];
@@ -31,17 +32,22 @@ class Game {
         this.cardDealer = new CardDealer();
 
         for (let count = 0; count < this._numberOfPointsCards; count++) {
-            const pointsCardData = this.cardDealer.dealAPointCard();
-            this._pointsCardsOnBoard.push(new PointCard(pointsCardData.requestSpices, pointsCardData.points, '','',this.cardClickHander));
+            this._pointsCardsOnBoard.push(
+                this.dealAPointCardObj(this.cardDealer.dealAPointCard())
+            );
         }
 
         for (let count = 0; count < this._numberOfMerchantCards; count++) {
-            const pointsCardData = this.cardDealer.dealAMerchantCard();
-            if (pointsCardData.requestSpices === undefined) {
-                this._merchantCardsonBoard.push(new SpiceObtainCard(pointsCardData.obtainSpices, '','',this.cardClickHander));
+            const merchantCardData = this.cardDealer.dealAMerchantCard();
+            if (merchantCardData.requestSpices === undefined) {
+                this._merchantCardsonBoard.push(
+                    this.dealASpiceObtainCardObj(merchantCardData)
+                );
             } 
             else {
-                this._merchantCardsonBoard.push(new SpiceTradeCard(pointsCardData.requestSpices, pointsCardData.obtainSpices, '','',this.cardClickHander)); 
+                this._merchantCardsonBoard.push(
+                    this.dealASpiceTradeCardObj(merchantCardData)
+                ); 
             }
         }
 
@@ -61,6 +67,17 @@ class Game {
         return this._currentPlayer;
     }
 
+    dealAPointCardObj (pointsCardData) {
+        return new PointCard(pointsCardData.requestSpices, pointsCardData.points, '','',this.cardClickHander)
+    }
+
+    dealASpiceObtainCardObj (spiceObtainCardData) {
+        return new SpiceObtainCard(spiceObtainCardData.obtainSpices, '','',this.cardClickHander)
+    }
+
+    dealASpiceTradeCardObj(spiceTradeCardData) {
+        return new SpiceTradeCard(spiceTradeCardData.requestSpices, spiceTradeCardData.obtainSpices, '','',this.cardClickHander)
+    }
     
     switchPlayer = () =>{
         this._currentPlayerIndex ++;
@@ -82,8 +99,12 @@ class Game {
             case PointCard : 
             const afforable = this._currentPlayer.paySpices(cardObj.spiceList);
             if (afforable) {
-                    this._currentPlayer.addPoints(cardObj.points);
-                    this._pointsCardsOnBoard = this._pointsCardsOnBoard.filter((card) => card !== cardObj);                
+                    this._currentPlayer.purchaseAPointCard(cardObj);
+                    this._pointsCardsOnBoard = this._pointsCardsOnBoard.filter((card) => card !== cardObj);    
+
+                    this._pointsCardsOnBoard.push(
+                        this.dealAPointCardObj(this.cardDealer.dealAPointCard())
+                    );
                     this._currentPlayer.render();
                     this.render();
                 }

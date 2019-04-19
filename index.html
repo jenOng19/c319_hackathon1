@@ -36,7 +36,7 @@
             <div class="spice-collection flex flex-left"></div>
             <div class="active-cards flex flex-center"></div>
             <div class="player-options">
-                <div class="btn rest-cards">Rest Cards</div>
+                <!-- <div class="btn rest-cards">Rest Cards</div> -->
                 <div class="btn end-turn">End turn</div>
             </div>
             <div class="score-area">
@@ -58,8 +58,10 @@
                 <div class="point-cards flex flex-right"></div>
                 <div class="merchant-cards flex flex-right"></div>
             </div>
-            <div class="available-spices flex flex-between flex-align-center hide">
-                <div class="spice-title">Spice<br>Flow</div>
+
+            <div class="available-spices flex flex-between flex-align-center">
+                <div class="spice-title">Spice<br>Levels</div>
+
                 <div class="spice-bowl yellow"></div>
                 <div class="spice-arrow"></div>
                 <div class="spice-bowl red"></div>
@@ -83,7 +85,7 @@
             <div class="active-cards flex flex-center">
             </div>
             <div class="player-options">
-                <div class="btn rest-cards">Rest Cards</div>
+                <!-- <div class="btn rest-cards">Rest Cards</div> -->
                 <div class="btn end-turn">End turn</div>
             </div>
             <div class="score-area">
@@ -102,7 +104,7 @@
                 </div>
                 <div class="popup-options">
                     <div id="reset-btn" class="btn">Reset Game</div>
-                    <div id="rules-btn" class="btn">Rules</div>
+                    <a href="#popup-rules" id="rules-btn" class="btn">Rules</a>
                     <div id="about-btn" class="btn">About</div>
                 </div>
                 <a class="popup-close" href="#">&#60; Back to Game</a>
@@ -118,10 +120,22 @@
                 </div>
                 <div class="popup-options">
                     <div id="reset-btn" class="btn">New Game</div>
-                    <div id="rules-btn" class="btn">Rules</div>
                     <div id="about-btn" class="btn">About</div>
                 </div>
-                <a class="popup-close" href="#">&#60; Back to Game</a>
+            </div>
+        </div>
+
+        <div class="popup popup-rules" id="popup-rules">
+            <div class="popup-content">
+                <div class="heading-secondary">
+                    <h2>Game Rules </h2>
+                    <a class="popup-close" href="#">&#60; Exit Rules</a>
+                </div>
+                <div class="popup-rules">
+                    <img src="assets/images/rules-1.jpg" alt="game rules page 1"/>
+                    <img src="assets/images/rules-2.jpg" alt="game rules page 1"/>
+                </div>
+                <a class="popup-close" href="#">&#60; Exit Rules</a>
             </div>
         </div>
         <button class='playButton' type='button'>PLAY</button>
