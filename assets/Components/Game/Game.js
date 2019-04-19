@@ -4,7 +4,7 @@ class Game {
         this._spicesOrder = ['yellow', 'red', 'green', 'brown'];
 
         this._numberOfPlayers = numberOfPlayers;
-        this._maxPointsCards = 1;
+        this._maxPointsCards = 2;
         this._lastTurn = false;
 
         this._numberOfPointsCards = 5;
