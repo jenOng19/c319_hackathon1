@@ -5,10 +5,11 @@ class Player {
         this._cardsInHand = initialCards;
         this._cardsObjInHand = [];
         this._cardsObjPlayedOut = [];
-        this._spiceList = ['yellow','yellow','yellow','red','red','green','brown']
+        this._spiceList = ['yellow','yellow','red', 'red','green','brown', 'brown']
 
         this._spiceObjList = [];
         this._points = 0;
+        this._numberOfPointsCards = 0;
         this._selectedSpice = null;
         this._selectedCards = null;
         this._domElement = [];
@@ -26,6 +27,7 @@ class Player {
         }    
     }
 
+    
     updateCardsObjInHand () {
 
         for (let card of this._cardsInHand) {
@@ -105,8 +107,9 @@ class Player {
         return true;
     }
     
-    addPoints (points) {
-        this._points += points;
+    purchaseAPointCard (cardObj) {
+        this._points += cardObj.points;
+        this._numberOfPointsCards ++;
     }
 
     acquireACard (cardObj) {
@@ -117,26 +120,29 @@ class Player {
     }
 
     render (){
-        $('.spice-collection').empty();
-        $('.active-cards').empty();
-        $('.inactive-cards').empty();
+        let player = this._id === 0 ? '.player1 ' : '.player2 ';
+        $(player + '.spice-collection').empty();
+        $(player +'.active-cards').empty();
+        $(player +'.inactive-cards').empty();
 
         this.updateSpiceObjList ();
 
+        $('.total-points span').text(this._points);
+        $('.total-cards span').text(this._numberOfPointsCards);
 
         for (let spiceObj of this._spiceObjList) {
             const spiceElement = spiceObj.render();
-            $('.spice-collection').append(spiceElement);
+            $(player +'.spice-collection').append(spiceElement);
         }
         
         for (let cardObj of this._cardsObjInHand) {
             const cardElement = cardObj.render();
-            $('.active-cards').append(cardElement);
+            $(player +'.active-cards').append(cardElement);
         }
 
         for (let cardObj of this._cardsObjPlayedOut) {
             const cardElement = cardObj.render();
-            $('.inactive-cards').append(cardElement);
+            $(player +'.inactive-cards').append(cardElement);
         }
     }
 }
