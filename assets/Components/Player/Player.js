@@ -96,7 +96,7 @@ class Player {
                 tempSpiceList.splice(tempSpiceList.indexOf(spice) , 1 );
 
             } else {
-                console.log('You cant afford it...')
+                $('.message-area').html('<div class="message-text">You cant afford it...</div>');
                 return false;
             }
         }

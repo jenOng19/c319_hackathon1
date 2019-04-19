@@ -61,9 +61,9 @@
 
 .message-area {
     position: absolute;
-    bottom: 0;
-    left: 15px;
+    top: 15px;
     box-shadow: 0 5px 5px rgba(0,0,0,.5);
+    right: 15px;
 }
 
 .message-text {
