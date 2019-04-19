@@ -22,7 +22,11 @@
 
 .inactive-cards .card {
     opacity: .6;
+    margin-bottom: -70px;
+    position: relative;
+    z-index: 0;
 }
+
 .inactive-cards .card:not(:first-child), .active-cards .card:not(:first-child) {
     margin-left:-50px;
 }
