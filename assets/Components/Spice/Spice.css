@@ -7,13 +7,14 @@
 
 .spice-collection {
     width: 400px;
-    min-height: 176px;
+    height: 176px;
     margin: 25px auto;
     padding: 15px;
     border: 1px solid #000;
     background-color: #000;
     background-size: cover; 
     background-position: center;
+    position:relative;
 }
 
 .spice.gray {

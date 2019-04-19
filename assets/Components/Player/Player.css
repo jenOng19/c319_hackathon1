@@ -150,3 +150,13 @@
     margin: 0 0 30px; 
     border: 10px solid #FFF;
 }
+.popup-rules {
+    overflow: auto;
+}
+.popup-rules img{
+    width: 100%;
+}
+.popup-rules .popup-content {
+    top: 100%;
+    margin-bottom:20px;
+}
