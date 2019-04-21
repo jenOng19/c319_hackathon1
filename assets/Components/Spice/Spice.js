@@ -7,7 +7,7 @@ class Spice {
     }
 
     spiceClickHandler= () => {
-        this.callBack(this);
+        this.callBack(this._color);
     }
 
     render(){
