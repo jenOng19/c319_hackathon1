@@ -1,8 +1,43 @@
+.introSideBar{
+    position: relative;
+    transition: width .5s;
+    overflow: hidden;
+    background-image: url(../../images/player-sidebar-bg1.jpg);
+    background-size: cover;
+    border-right: 2px solid #000;
+    width: 500px;
+    height: initial;
+}
+
+.playButton{
+    position: fixed;
+    top:40%;
+    transform: translate(-50%,-50%);
+    left: 17%;
+    font-size: 3rem;
+    padding: 15px 25px;
+    background-color: blanchedalmond;
+    border: 1px solid black;
+    cursor:pointer;
+}
+
+.aboutButton{
+    position: fixed;
+    top:55%;
+    transform: translate(-50%,-50%);
+    left: 17%;
+    font-size: 3rem;
+    padding: 15px 5px;
+    background-color: blanchedalmond;
+    border: 1px solid black;
+    cursor:pointer;
+}
+
 .player-sidebar {
     position: relative;
     width: 0;
     height: 0;
-    background-color: pink;
+    /* background-color: pink; */
     transition: width .5s;
     overflow: hidden;
     background-image: url(../../images/player-sidebar-bg1.jpg);

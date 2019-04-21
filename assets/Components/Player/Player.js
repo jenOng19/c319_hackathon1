@@ -27,7 +27,6 @@ class Player {
         }    
     }
 
-    
     updateCardsObjInHand () {
 
         for (let card of this._cardsInHand) {
@@ -147,8 +146,6 @@ class Player {
         }
     }
 
-
-    
     get spiceList (){
         return this._spiceList;
     }
