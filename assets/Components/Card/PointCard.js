@@ -20,6 +20,7 @@ class PointCard extends Card {
                                 .on({
                                     'click': this.cardClickHandler
                                 });
+
         const cardPointDisplayElement = $("<div>").addClass("points-display").text(this._points);
         const cardPriceElement = $("<div>").addClass("price flex flex-left");
 
