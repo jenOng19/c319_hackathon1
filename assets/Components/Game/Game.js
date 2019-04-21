@@ -13,8 +13,7 @@ class Game {
         this._numberOfMerchantCards = 6;
         this._merchantCardsonBoard = [];
 
-        this._playerInitialCards = [spiceObtainCards[0]];
-        // this._playerInitialCards = [spiceObtainCards[0], spiceUpgradeCards[0]];
+        this._playerInitialCards = [spiceObtainCards[0], spiceUpgradeCards[0]];
 
         this._currentPlayerIndex = 0;
         this._currentPlayer = null;
@@ -29,11 +28,8 @@ class Game {
     }
 
     handlePlayButton(){
-        $('.playButton').addClass('hide');
+        $('.introSideBar').addClass('hide');
         $('.player1').removeClass('hide');
-        $('.game-container').removeClass('hide');
-        $('.available-spices').removeClass('hide');
-        $('.help-btn').removeClass('hide');
     }
 
     init () {
