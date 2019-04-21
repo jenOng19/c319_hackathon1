@@ -23,7 +23,7 @@ class Player {
     updateSpiceObjList (){
         this._spiceObjList = [];
         for(let spice of this._spiceList){
-            this._spiceObjList.push(new Spice(spice, null))
+            this._spiceObjList.push(new Spice(spice, this.handleSpiceClick))
         }    
     }
 
@@ -54,9 +54,8 @@ class Player {
                 break;
             case SpiceUpgradeCard : 
                 for (let i = 0; i < cardObj.upgradeTimes; i++){
-                    this.spiceList.yellow--;
-                    this.spiceList.red ++;
-                }
+                    cardObj
+                };
                 this._cardsObjPlayedOut.push(cardObj);
                 this._cardsObjInHand = this._cardsObjInHand.filter((card) => card !== cardObj);
                 cardObj.callBack = null;
@@ -76,6 +75,27 @@ class Player {
         }
 
     }
+
+    // handleSpiceClick(color){
+    //     switch(color){
+    //         case 'yellow':
+    //             for(let colorIndex=0; colorIndex<this._spiceObjList.length, colorIndex++){
+    //                 this.indexPosition=this._spiceObjList.indexOf('yellow');
+    //                 this._spiceObjList.splice(this.indexPosition, 1, 'red');
+    //             }
+    //             this._spiceObjList.yellow--;
+    //             this._spiceObjList.red ++;
+    //             break;
+    //         case 'red':
+    //             this._spiceList.red--;
+    //             this._spiceList.green ++;
+    //             break;
+    //         case 'green':
+    //             this._spiceList.green--;
+    //             this._spiceList.brown ++;
+    //             break;
+    //     }
+    // }
 
     acquireSpices(spiceList) {
         for (let spice of spiceList) {
