@@ -196,4 +196,7 @@
     top: 100%;
     margin-bottom:20px;
 }
-
+/* .glow{
+    box-shadow: 0 0 20px red;
+    transform:translateY(-20px);
+} */

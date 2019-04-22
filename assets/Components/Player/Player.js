@@ -13,6 +13,8 @@ class Player {
         this._selectedSpice = null;
         this._selectedCards = null;
         this._domElement = [];
+
+        this.handleSpiceClick=this.handleSpiceClick.bind(this);
     }
 
     init () {
@@ -54,7 +56,7 @@ class Player {
                 break;
             case SpiceUpgradeCard : 
                 for (let i = 0; i < cardObj.upgradeTimes; i++){
-                    cardObj
+                    this.choose
                 };
                 this._cardsObjPlayedOut.push(cardObj);
                 this._cardsObjInHand = this._cardsObjInHand.filter((card) => card !== cardObj);
@@ -76,26 +78,26 @@ class Player {
 
     }
 
-    // handleSpiceClick(color){
-    //     switch(color){
-    //         case 'yellow':
-    //             for(let colorIndex=0; colorIndex<this._spiceObjList.length, colorIndex++){
-    //                 this.indexPosition=this._spiceObjList.indexOf('yellow');
-    //                 this._spiceObjList.splice(this.indexPosition, 1, 'red');
-    //             }
-    //             this._spiceObjList.yellow--;
-    //             this._spiceObjList.red ++;
-    //             break;
-    //         case 'red':
-    //             this._spiceList.red--;
-    //             this._spiceList.green ++;
-    //             break;
-    //         case 'green':
-    //             this._spiceList.green--;
-    //             this._spiceList.brown ++;
-    //             break;
-    //     }
-    // }
+    handleSpiceClick(color){
+        switch(color){
+            case 'yellow':
+                for(let colorIndex=0; colorIndex<this._spiceObjList.length; colorIndex++){
+                    this.indexPosition=this._spiceObjList.indexOf('yellow');
+                    this._spiceObjList.splice(this.indexPosition, 1, 'red');
+                }
+                this._spiceObjList.yellow--;
+                this._spiceObjList.red ++;
+                break;
+            case 'red':
+                this._spiceList.red--;
+                this._spiceList.green ++;
+                break;
+            case 'green':
+                this._spiceList.green--;
+                this._spiceList.brown ++;
+                break;
+        }
+    }
 
     acquireSpices(spiceList) {
         for (let spice of spiceList) {
