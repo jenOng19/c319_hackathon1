@@ -80,7 +80,7 @@ class Player {
         if(this._count>0){
             const getIndex=this._spiceColorOrder.indexOf(spice._color);
                 
-            if(getIndex< this._spiceColorOrder.length){
+            if(getIndex< this._spiceColorOrder.length - 1){
                 const getSpiceObjIndex=this._spiceObjList.indexOf(spice);
                 this._spiceList[getSpiceObjIndex]=this._spiceColorOrder[getIndex+1];
                 this.render();
