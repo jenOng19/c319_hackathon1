@@ -8,6 +8,7 @@ class Player {
         this._spiceColorOrder=spicesOrder;
         this._spiceList = ['yellow','yellow','yellow'];
         this._selectedUpgradeCard=null;
+        this._count=null;
     
         // this._spiceList = ['yellow','yellow','red', 'red','green','brown', 'brown']
 
@@ -57,16 +58,9 @@ class Player {
                 this.render();
                 break;
             case SpiceUpgradeCard : 
-                // for (let i = 0; i < cardObj.upgradeTimes; i++){
                     this._spiceUpgradeCardSelected = true;
                     this._selectedUpgradeCard=cardObj;
-                    // this.handleSpiceClick(cardObj);
-                // };
-                // this._cardsObjPlayedOut.push(cardObj);
-                // this._cardsObjInHand = this._cardsObjInHand.filter((card) => card !== cardObj);
-                // cardObj.callBack = null;
-                // this.render();
-
+                    this._count=this._selectedUpgradeCard.upgradeTimes;
                 break;
             case SpiceTradeCard : 
                 const afforable = this.paySpices(cardObj.requestSpiceList);
@@ -83,26 +77,24 @@ class Player {
     }
 
     handleSpiceClick=(spice)=>{
-        this._count=this._selectedUpgradeCard.upgradeTimes;
-        for (let i = 0; i < this._count; i++){
-            if(this._count>0){
-                const getIndex=this._spiceColorOrder.indexOf(spice._color);
+        if(this._count>0){
+            const getIndex=this._spiceColorOrder.indexOf(spice._color);
                 
-                if(getIndex< this._spiceColorOrder.length){
-                    const getSpiceObjIndex=this._spiceObjList.indexOf(spice);
-                    this._spiceList[getSpiceObjIndex]=this._spiceColorOrder[getIndex+1];
-                    this.render();
-                    this.count--;
-                }
-
-            }else{
-                this._cardsObjPlayedOut.push(this._selectedUpgradeCard);
-                this._cardsObjInHand = this._cardsObjInHand.filter((card) => card !== this._selectedUpgradeCard);
-                this._selectedUpgradeCard.callBack = null;
+            if(getIndex< this._spiceColorOrder.length){
+                const getSpiceObjIndex=this._spiceObjList.indexOf(spice);
+                this._spiceList[getSpiceObjIndex]=this._spiceColorOrder[getIndex+1];
                 this.render();
-                this._count=null;
+                this._count--;
+                if(this._count===0){
+                    this._cardsObjPlayedOut.push(this._selectedUpgradeCard);
+                    this._cardsObjInHand = this._cardsObjInHand.filter((card) => card !== this._selectedUpgradeCard);
+                    this._selectedUpgradeCard.callBack = null;
+                    this.render();
+                    this._count=null;
+                    this._selectedUpgradeCard=null;
+                }
             }
-        }
+        }   
     }
 
     acquireSpices(spiceList) {
