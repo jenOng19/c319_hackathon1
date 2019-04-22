@@ -90,7 +90,6 @@ class Game {
     }
     
     switchPlayer = () => {
-        debugger;
         if (this._lastTurn) this.endGame();
         if (this._currentPlayer.numberOfPointsCards === this._maxPointsCards ) this._lastTurn = true;
 
@@ -103,11 +102,8 @@ class Game {
         } else {
             $('.player2').addClass('active-player');
             $('.player1').removeClass('active-player');
-
         }
-
         this._currentPlayer = this._playerObjList[this._currentPlayerIndex];
-
     }
     cardClickHander = (cardObj) => {
         switch (cardObj.constructor) {
@@ -123,7 +119,6 @@ class Game {
                     this._currentPlayer.render();
                     this.render();
                 }
-
                 break;
             case SpiceTradeCard :
                 
@@ -132,7 +127,6 @@ class Game {
                 this.shuffleANewMerchantCardToBoard();
                 this._currentPlayer.render();
                 this.render();
-            
                 break;
             case SpiceObtainCard :
                 this._currentPlayer.acquireACard(cardObj);
