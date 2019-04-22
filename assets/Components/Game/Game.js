@@ -80,6 +80,10 @@ class Game {
 
     endGame (){
         if (this._playerObjList[0].points > this._playerObjList[1].points) {
+            $('#popup-winner, #popup-winner .popup-content').css({
+                'opacity': 1,
+                'visibility': visible,
+            })
             console.log("Player 1 is the winner");
         }
         else if (this._playerObjList[0].points < this._playerObjList[1].points){
