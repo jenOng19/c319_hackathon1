@@ -97,6 +97,28 @@ class Player {
     //     }
     // }
 
+    handleSpiceClick = (spiceObj) => {
+
+        //spicesOrder = ['yellow', 'red', 'green', 'brown'];
+        // in the cardData.js 
+        const index = spicesOrder.indexOf(spiceObj.color)
+        if (index  < spicesOrder.length - 1 ) {
+            const spiceObjIndex = this._spiceObjList.indexOf(spiceObj);
+            this._spiceList[spiceObjIndex] = spicesOrder[index + 1]
+            this.render();
+        }
+
+        //I realized that I did this class in the very bad way
+        // this._spiceList is not nesseccery at all
+        // all we need is spiceObjList 
+        //so in this function, i can change the spiceObjList directly , instead of changing the this._spiceList
+        //which is raw data, and then update to spiceObjList accordingly ....
+        //this works for now but need to rewrite later.
+        //continue to add the logic that only upate when the upgrade card is selected by user first 
+        //which mean this._selectedCards has a spiceUpgradeCard in it..
+
+    }
+
     acquireSpices(spiceList) {
         for (let spice of spiceList) {
             this._spiceList.push(spice)

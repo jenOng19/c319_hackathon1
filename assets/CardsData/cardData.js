@@ -119,5 +119,7 @@ const spiceUpgradeCards = [
     // do we have another free update card in game??? If yes, make more here.
 ]
 
+const spicesOrder = ['yellow', 'red', 'green', 'brown'];
+
 
  
