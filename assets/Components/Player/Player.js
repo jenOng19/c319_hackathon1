@@ -51,16 +51,15 @@ class Player {
         switch (cardObj.constructor) {
             case SpiceObtainCard :
                 this.acquireSpices(cardObj.spiceList);
-
                 this._cardsObjPlayedOut.push(cardObj);
                 this._cardsObjInHand = this._cardsObjInHand.filter((card) => card !== cardObj);
                 cardObj.callBack = null;
                 this.render();
                 break;
             case SpiceUpgradeCard : 
-                    this._spiceUpgradeCardSelected = true;
-                    this._selectedUpgradeCard=cardObj;
-                    this._count=this._selectedUpgradeCard.upgradeTimes;
+                this._spiceUpgradeCardSelected = true;
+                this._selectedUpgradeCard=cardObj;
+                this._count=this._selectedUpgradeCard.upgradeTimes;
                 break;
             case SpiceTradeCard : 
                 const afforable = this.paySpices(cardObj.requestSpiceList);
