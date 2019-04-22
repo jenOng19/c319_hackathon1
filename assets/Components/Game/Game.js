@@ -45,7 +45,7 @@ class Game {
         }
 
         for (let counter = 0; counter < this._numberOfPlayers; counter ++) {
-            const player = new Player(counter, this._playerInitialCards);
+            const player = new Player(counter, this._playerInitialCards, this._spicesOrder);
             player.init();
             player.render();
             this._playerObjList.push(player);
