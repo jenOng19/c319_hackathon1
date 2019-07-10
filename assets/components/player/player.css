@@ -11,28 +11,29 @@
 
 .playButton{
     position: fixed;
-    top: 40%;
+    top: 47%;
     transform: translate(-50%,-50%);
-    left: 12%;
+    left: 17%;
     font-size: 3rem;
     padding: 15px 25px;
     background-color: blanchedalmond;
     border: 1px solid black;
     cursor:pointer;
+    font-family: Righteous, cursive;
 }
 
-.aboutButton{
+/* .aboutButton{
     position: fixed;
-    top:55%;
+    top:54%;
     transform: translate(-50%,-50%);
-    left: 12%;
+    left: 17%;
     font-size: 3rem;
     padding: 15px 5px;
     background-color: blanchedalmond;
     border: 1px solid black;
-    cursor:pointer;
-    display: inline-block;
-}
+    cursor:pointer; */
+    /* display: inline-block; */
+/* } */
 
 .player-sidebar {
     position: relative;
