@@ -1,4 +1,4 @@
-# wicked-sales
+# Century: Spice Road
 
 A board game implemented with JavaScript and CSS</br>
 Website: https://spice-road.jeremywang.dev/
