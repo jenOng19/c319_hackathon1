@@ -116,6 +116,7 @@ const spiceUpgradeCards = [
     {
         upgradeTimes : 2
     }
+    // do we have another free update card in game??? If yes, make more here.
 ]
 
 

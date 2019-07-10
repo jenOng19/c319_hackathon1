@@ -1,0 +1,43 @@
+.player1 .spice-collection {
+    background-image: url(../../images/spice-collection-1.jpg);
+}
+.player2 .spice-collection {
+    background-image: url(../../images/spice-collection-2.jpg);
+}
+
+.spice-collection {
+    width: 400px;
+    height: 176px;
+    margin: 25px auto;
+    padding: 15px;
+    border: 1px solid #000;
+    background-color: #000;
+    background-size: cover; 
+    background-position: center;
+    position:relative;
+}
+
+.spice.gray {
+    background: url(../../images/cube-gray.svg);
+}
+.spice.yellow {
+    background: url(../../images/cube-yellow.svg);
+}
+.spice.red {
+    background: url(../../images/cube-red.svg);
+}
+.spice.green {
+    background: url(../../images/cube-green.svg);
+}
+.spice.brown {
+    background: url(../../images/cube-brown.svg);
+}
+
+.spice {
+    width: 60px;
+    height: 60px;
+    margin: 6px;
+    background-size: cover;
+}
+
+

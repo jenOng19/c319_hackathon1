@@ -33,7 +33,9 @@ class Player {
     }
 
     updateCardsObjInHand () {
+
         for (let card of this._cardsInHand) {
+
             if (card.upgradeTimes === undefined) {
                 this._cardsObjInHand.push(new SpiceObtainCard(card.obtainSpices, '','',this.cardClickHander));
             } 
