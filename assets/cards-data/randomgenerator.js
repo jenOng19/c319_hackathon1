@@ -1,3 +1,4 @@
+
 class RandomGenerator{
 
 	generate(max){

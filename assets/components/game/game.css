@@ -1,0 +1,107 @@
+body{
+    margin: 0;
+}
+
+.game-area{
+    flex: 1;
+    flex-direction: column;
+    background-image: url(../../images/game-bg1.jpg);
+    background-size: cover;
+    position: relative;
+}
+.game-area-title h1 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 2.4rem;
+    padding-bottom: 5px;
+    color: white;
+    text-shadow:
+        -1px -1px 0 #000,  
+        2px -1px 0 #000,
+        -1px 2px 0 #000,
+        2px 2px 0 #000;
+}
+.game-area-title img {
+    max-width: 360px;
+    display:block;
+    margin: 10px auto 0;
+}
+
+.help-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #FFF;
+    border-radius: 50%;
+    background-color: #fff;
+    background-image: url(../../images/help-button.svg);
+    background-size: cover;
+    overflow: hidden;
+    transition: all .4s;
+}
+
+.help-btn:hover {
+    animation: pulse 1.5s infinite;
+}
+
+.game-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 0 5px;
+}
+
+.merchant-cards .card, .conversion-cards .card {
+    width: 130px;
+    height: 210px;
+}   
+
+.merchant-cards, .conversion-cards, .available-spices {
+    padding: 15px 0;
+}
+
+.available-spices {
+    max-width: 900px;
+    width: 100%;
+    margin: auto;
+    padding: 0 5px 0;
+}
+
+.spice-title {
+    text-orientation: upright;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,  
+    2px -1px 0 #000,
+    -1px 2px 0 #000,
+    2px 2px 0 #000;
+}
+
+.spice-arrow {
+    background-image: url(../../images/right-arrow.svg);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+
+.spice-bowl.yellow {
+    background-image: url(../../images/bowl-cube-yellow.jpg);
+}
+.spice-bowl.red {
+    background-image: url(../../images/bowl-cube-red.jpg);
+}
+.spice-bowl.green {
+    background-image: url(../../images/bowl-cube-green.jpg);
+}
+.spice-bowl.brown {
+    background-image: url(../../images/bowl-cube-brown.jpg);
+}
+
+.spice-bowl {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    border: 5px solid #000;
+    background-size: cover;
+}

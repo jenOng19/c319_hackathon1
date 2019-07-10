@@ -30,5 +30,6 @@ class SpiceUpgradeCard extends Card {
         cardElement.append(cardFunctionElement);
 
         return cardElement;
+    
     }
 }

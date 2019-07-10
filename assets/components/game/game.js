@@ -80,10 +80,6 @@ class Game {
 
     endGame (){
         if (this._playerObjList[0].points > this._playerObjList[1].points) {
-            $('#popup-winner, #popup-winner .popup-content').css({
-                'opacity': 1,
-                'visibility': visible,
-            })
             console.log("Player 1 is the winner");
         }
         else if (this._playerObjList[0].points < this._playerObjList[1].points){
@@ -94,6 +90,7 @@ class Game {
     }
     
     switchPlayer = () => {
+        debugger;
         if (this._lastTurn) this.endGame();
         if (this._currentPlayer.numberOfPointsCards === this._maxPointsCards ) this._lastTurn = true;
 
@@ -106,8 +103,11 @@ class Game {
         } else {
             $('.player2').addClass('active-player');
             $('.player1').removeClass('active-player');
+
         }
+
         this._currentPlayer = this._playerObjList[this._currentPlayerIndex];
+
     }
     cardClickHander = (cardObj) => {
         switch (cardObj.constructor) {
@@ -123,6 +123,7 @@ class Game {
                     this._currentPlayer.render();
                     this.render();
                 }
+
                 break;
             case SpiceTradeCard :
                 
@@ -131,6 +132,7 @@ class Game {
                 this.shuffleANewMerchantCardToBoard();
                 this._currentPlayer.render();
                 this.render();
+            
                 break;
             case SpiceObtainCard :
                 this._currentPlayer.acquireACard(cardObj);

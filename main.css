@@ -82,7 +82,7 @@ html {
     display: flex;
 }
 
-h1 {
+.player-header {
     text-align: center;
     padding: 25px 0;
 }
