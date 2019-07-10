@@ -1,0 +1,121 @@
+.obtain-card {
+    background-image: url(../../images/card-obtain.jpg);
+}
+.point-card {
+    background-image: url(../../images/card-point.jpg);
+}
+.trade-card {
+    background-image: url(../../images/card-trade.jpg);
+}
+.upgrade-card {
+    background-image: url(../../images/card-upgrade.jpg);
+}
+.card {
+    width: 130px;
+    height: 225px;
+    margin: 5px;
+    background-size: cover;
+    border: 5px solid #000;
+    border-radius: 15px;
+    box-shadow: 5px 10px 8px rgba(0,0,0,.8);
+}
+ .glow{
+    width: 130px;
+    height: 225px;
+    box-shadow: 0 0 20px red;
+    transform: translateY(-20px);
+ }
+
+.inactive-cards .card {
+    opacity: .6;
+    margin-bottom: -70px;
+    position: relative;
+    z-index: 0;
+}
+
+.inactive-cards .card:not(:first-child), .active-cards .card:not(:first-child) {
+    margin-left:-50px;
+}
+
+.active-cards {
+    padding-bottom: 23%;
+}
+
+.merchant-cards, .conversion-cards {
+    padding: 15px 0;
+}
+.merchant-card.card{
+    border: 5px solid #71418b;
+}
+
+.point-card.card {
+    border: 5px solid #e78a58;
+}
+
+.point-cards .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.point-cards .points-display {
+    text-align: center;
+    font-size: 3rem;
+    color: #FFF;
+    background-color: rgba(0,0,0,.9);
+    display: inline-block;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+.point-cards .price {
+    background-color: rgba(255,255,255,.7);
+    border-radius: 10px;
+}
+
+.card-function {
+    display: inline-block;
+    background-color: rgba(255,255,255,.8);
+    border-right: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    border-radius: 10px;
+}
+
+.card-function .arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+}
+
+.trade-arrow.arrow{
+    background-image: url(../../images/down-arrow.svg);
+    background-size: cover;
+}
+
+.card-spice.gray {
+    background-image: url(../../images/cube-gray.svg);
+}
+.card-spice.yellow {
+    background-image: url(../../images/cube-yellow.svg);
+}
+.card-spice.red {
+    background-image: url(../../images/cube-red.svg);
+}
+.card-spice.green {
+    background-image: url(../../images/cube-green.svg);
+}
+.card-spice.brown {
+    background-image: url(../../images/cube-brown.svg);
+}
+
+.card-spice {
+    width: 27px;
+    height: 27px;
+    margin: 5px;
+    background-size: cover;
+    background-color: transparent;
+}
+
+
